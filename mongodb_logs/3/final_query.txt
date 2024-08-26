@@ -1,0 +1,202 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.user_review_counts',
+          indexFilterSet: false,
+          parsedQuery: {},
+          queryHash: '039E5E03',
+          planCacheKey: '039E5E03',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              review_count: 1,
+              user_id: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              direction: 'forward'
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 279847,
+          executionTimeMillis: 91167,
+          totalKeysExamined: 0,
+          totalDocsExamined: 279847,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 279847,
+            executionTimeMillisEstimate: 96,
+            works: 279848,
+            advanced: 279847,
+            needTime: 0,
+            needYield: 0,
+            saveState: 298,
+            restoreState: 298,
+            isEOF: 1,
+            transformBy: {
+              review_count: 1,
+              user_id: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              nReturned: 279847,
+              executionTimeMillisEstimate: 53,
+              works: 279848,
+              advanced: 279847,
+              needTime: 0,
+              needYield: 0,
+              saveState: 298,
+              restoreState: 298,
+              isEOF: 1,
+              direction: 'forward',
+              docsExamined: 279847
+            }
+          }
+        }
+      },
+      nReturned: 279847,
+      executionTimeMillisEstimate: 392
+    },
+    {
+      '$lookup': {
+        from: 'user',
+        as: 'user_info',
+        localField: 'user_id',
+        foreignField: 'user_id',
+        unwinding: {
+          preserveNullAndEmptyArrays: false
+        }
+      },
+      totalDocsExamined: 279845,
+      totalKeysExamined: 279845,
+      collectionScans: 0,
+      indexesUsed: [
+        'user_id_1'
+      ],
+      nReturned: 279845,
+      executionTimeMillisEstimate: 91137
+    },
+    {
+      '$project': {
+        user_id: true,
+        review_count: true,
+        fans: {
+          '$convert': {
+            input: '$user_info.fans',
+            to: {
+              '$const': 'int'
+            }
+          }
+        },
+        useful: {
+          '$convert': {
+            input: '$user_info.useful',
+            to: {
+              '$const': 'int'
+            }
+          }
+        },
+        _id: false
+      },
+      nReturned: 279845,
+      executionTimeMillisEstimate: 91146
+    },
+    {
+      '$sort': {
+        sortKey: {
+          fans: -1,
+          review_count: -1,
+          useful: -1
+        },
+        limit: 10
+      },
+      totalDataSizeSortedBytesEstimate: 4430,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      nReturned: 10,
+      executionTimeMillisEstimate: 91152
+    },
+    {
+      '$out': {
+        coll: 'influencers',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 91152
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'user_review_counts',
+    pipeline: [
+      {
+        '$lookup': {
+          from: 'user',
+          localField: 'user_id',
+          foreignField: 'user_id',
+          as: 'user_info'
+        }
+      },
+      {
+        '$unwind': '$user_info'
+      },
+      {
+        '$project': {
+          _id: 0,
+          user_id: 1,
+          review_count: 1,
+          fans: {
+            '$toInt': '$user_info.fans'
+          },
+          useful: {
+            '$toInt': '$user_info.useful'
+          }
+        }
+      },
+      {
+        '$sort': {
+          fans: -1,
+          review_count: -1,
+          useful: -1
+        }
+      },
+      {
+        '$limit': 10
+      },
+      {
+        '$out': 'influencers'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

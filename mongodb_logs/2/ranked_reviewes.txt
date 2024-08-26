@@ -1,0 +1,242 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.business_reviews',
+          indexFilterSet: false,
+          parsedQuery: {},
+          queryHash: 'F8A2BB64',
+          planCacheKey: 'F8A2BB64',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'SORT',
+            sortPattern: {
+              business_id: 1,
+              date: -1
+            },
+            memLimit: 104857600,
+            type: 'simple',
+            inputStage: {
+              stage: 'PROJECTION_SIMPLE',
+              transformBy: {
+                business_id: 1,
+                date: 1,
+                match_count: 1,
+                review_id: 1,
+                stars: 1,
+                text: 1,
+                _id: 0
+              },
+              inputStage: {
+                stage: 'COLLSCAN',
+                direction: 'forward'
+              }
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 1468,
+          executionTimeMillis: 41,
+          totalKeysExamined: 0,
+          totalDocsExamined: 1468,
+          executionStages: {
+            stage: 'SORT',
+            nReturned: 1468,
+            executionTimeMillisEstimate: 12,
+            works: 2938,
+            advanced: 1468,
+            needTime: 1469,
+            needYield: 0,
+            saveState: 3,
+            restoreState: 3,
+            isEOF: 1,
+            sortPattern: {
+              business_id: 1,
+              date: -1
+            },
+            memLimit: 104857600,
+            type: 'simple',
+            totalDataSizeSorted: 1196244,
+            usedDisk: false,
+            spills: 0,
+            spilledDataStorageSize: 0,
+            inputStage: {
+              stage: 'PROJECTION_SIMPLE',
+              nReturned: 1468,
+              executionTimeMillisEstimate: 7,
+              works: 1469,
+              advanced: 1468,
+              needTime: 0,
+              needYield: 0,
+              saveState: 3,
+              restoreState: 3,
+              isEOF: 1,
+              transformBy: {
+                business_id: 1,
+                date: 1,
+                match_count: 1,
+                review_id: 1,
+                stars: 1,
+                text: 1,
+                _id: 0
+              },
+              inputStage: {
+                stage: 'COLLSCAN',
+                nReturned: 1468,
+                executionTimeMillisEstimate: 7,
+                works: 1469,
+                advanced: 1468,
+                needTime: 0,
+                needYield: 0,
+                saveState: 3,
+                restoreState: 3,
+                isEOF: 1,
+                direction: 'forward',
+                docsExamined: 1468
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1468,
+      executionTimeMillisEstimate: 21
+    },
+    {
+      '$_internalSetWindowFields': {
+        partitionBy: '$business_id',
+        sortBy: {
+          date: -1
+        },
+        output: {
+          rank: {
+            '$denseRank': {}
+          }
+        }
+      },
+      maxFunctionMemoryUsageBytes: {
+        rank: 115
+      },
+      maxTotalMemoryUsageBytes: 4867,
+      usedDisk: false,
+      nReturned: 1468,
+      executionTimeMillisEstimate: 21
+    },
+    {
+      '$match': {
+        rank: {
+          '$lte': 10
+        }
+      },
+      nReturned: 100,
+      executionTimeMillisEstimate: 21
+    },
+    {
+      '$project': {
+        business_id: true,
+        match_count: true,
+        review_id: true,
+        text: true,
+        stars: true,
+        date: true,
+        _id: false
+      },
+      nReturned: 100,
+      executionTimeMillisEstimate: 21
+    },
+    {
+      '$sort': {
+        sortKey: {
+          match_count: -1,
+          date: -1,
+          stars: -1
+        }
+      },
+      totalDataSizeSortedBytesEstimate: 100719,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      nReturned: 100,
+      executionTimeMillisEstimate: 21
+    },
+    {
+      '$out': {
+        coll: 'ranked_reviews',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 21
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'business_reviews',
+    pipeline: [
+      {
+        '$setWindowFields': {
+          partitionBy: '$business_id',
+          sortBy: {
+            date: -1
+          },
+          output: {
+            rank: {
+              '$denseRank': {}
+            }
+          }
+        }
+      },
+      {
+        '$match': {
+          rank: {
+            '$lte': 10
+          }
+        }
+      },
+      {
+        '$project': {
+          _id: 0,
+          business_id: 1,
+          match_count: 1,
+          review_id: 1,
+          text: 1,
+          stars: 1,
+          date: 1
+        }
+      },
+      {
+        '$sort': {
+          match_count: -1,
+          date: -1,
+          stars: -1
+        }
+      },
+      {
+        '$out': 'ranked_reviews'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

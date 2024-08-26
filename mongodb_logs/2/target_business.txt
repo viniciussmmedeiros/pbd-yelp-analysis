@@ -1,0 +1,309 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.business',
+          indexFilterSet: false,
+          parsedQuery: {
+            business_id: {
+              '$eq': 'dLXkx82ZMsR5NLkCRtg0Dw'
+            }
+          },
+          queryHash: 'E186B3AF',
+          planCacheKey: 'D57F8887',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              inputStage: {
+                stage: 'IXSCAN',
+                keyPattern: {
+                  business_id: 1
+                },
+                indexName: 'business_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  business_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  business_id: [
+                    '["dLXkx82ZMsR5NLkCRtg0Dw", "dLXkx82ZMsR5NLkCRtg0Dw"]'
+                  ]
+                }
+              }
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 1,
+          executionTimeMillis: 0,
+          totalKeysExamined: 1,
+          totalDocsExamined: 1,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 1,
+            executionTimeMillisEstimate: 0,
+            works: 2,
+            advanced: 1,
+            needTime: 0,
+            needYield: 0,
+            saveState: 1,
+            restoreState: 1,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              nReturned: 1,
+              executionTimeMillisEstimate: 0,
+              works: 2,
+              advanced: 1,
+              needTime: 0,
+              needYield: 0,
+              saveState: 1,
+              restoreState: 1,
+              isEOF: 1,
+              docsExamined: 1,
+              alreadyHasObj: 0,
+              inputStage: {
+                stage: 'IXSCAN',
+                nReturned: 1,
+                executionTimeMillisEstimate: 0,
+                works: 2,
+                advanced: 1,
+                needTime: 0,
+                needYield: 0,
+                saveState: 1,
+                restoreState: 1,
+                isEOF: 1,
+                keyPattern: {
+                  business_id: 1
+                },
+                indexName: 'business_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  business_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  business_id: [
+                    '["dLXkx82ZMsR5NLkCRtg0Dw", "dLXkx82ZMsR5NLkCRtg0Dw"]'
+                  ]
+                },
+                keysExamined: 1,
+                seeks: 1,
+                dupsTested: 0,
+                dupsDropped: 0
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$addFields': {
+        categoriesArray: {
+          '$map': {
+            input: {
+              '$cond': [
+                {
+                  '$ne': [
+                    {
+                      '$type': [
+                        '$categories'
+                      ]
+                    },
+                    {
+                      '$const': 'null'
+                    }
+                  ]
+                },
+                {
+                  '$split': [
+                    '$categories',
+                    {
+                      '$const': ', '
+                    }
+                  ]
+                },
+                {
+                  '$const': []
+                }
+              ]
+            },
+            as: 'category',
+            in: {
+              '$replaceAll': {
+                input: {
+                  '$replaceAll': {
+                    input: {
+                      '$trim': {
+                        input: '$$category'
+                      }
+                    },
+                    find: {
+                      '$const': '('
+                    },
+                    replacement: {
+                      '$const': '\\('
+                    }
+                  }
+                },
+                find: {
+                  '$const': ')'
+                },
+                replacement: {
+                  '$const': '\\)'
+                }
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$unwind': {
+        path: '$categoriesArray'
+      },
+      nReturned: 14,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$project': {
+        business_id: true,
+        city: '$city',
+        category: '$categoriesArray',
+        _id: false
+      },
+      nReturned: 14,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$out': {
+        coll: 'target_business',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 0
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'business',
+    pipeline: [
+      {
+        '$match': {
+          business_id: 'dLXkx82ZMsR5NLkCRtg0Dw'
+        }
+      },
+      {
+        '$addFields': {
+          categoriesArray: {
+            '$map': {
+              input: {
+                '$cond': {
+                  if: {
+                    '$ne': [
+                      {
+                        '$type': '$categories'
+                      },
+                      'null'
+                    ]
+                  },
+                  then: {
+                    '$split': [
+                      '$categories',
+                      ', '
+                    ]
+                  },
+                  else: []
+                }
+              },
+              as: 'category',
+              in: {
+                '$replaceAll': {
+                  input: {
+                    '$replaceAll': {
+                      input: {
+                        '$trim': {
+                          input: '$$category'
+                        }
+                      },
+                      find: '(',
+                      replacement: '\\('
+                    }
+                  },
+                  find: ')',
+                  replacement: '\\)'
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        '$unwind': '$categoriesArray'
+      },
+      {
+        '$project': {
+          _id: 0,
+          business_id: 1,
+          city: '$city',
+          category: '$categoriesArray'
+        }
+      },
+      {
+        '$out': 'target_business'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

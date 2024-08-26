@@ -1,0 +1,1001 @@
+executionStats: {
+          executionSuccess: true,
+          nReturned: 1894,
+          executionTimeMillis: 3589,
+          totalKeysExamined: 3788,
+          totalDocsExamined: 3788,
+          executionStages: {
+            stage: 'mkobj',
+            planNodeId: 4,
+            nReturned: 1894,
+            executionTimeMillisEstimate: 3078,
+            opens: 1,
+            closes: 1,
+            saveState: 164,
+            restoreState: 164,
+            isEOF: 1,
+            objSlot: 40,
+            rootSlot: 13,
+            fieldBehavior: 'drop',
+            fields: [],
+            projectFields: [
+              'business_info'
+            ],
+            projectSlots: [
+              39
+            ],
+            forceNewObject: true,
+            returnOldObject: false,
+            inputStage: {
+              stage: 'nlj',
+              planNodeId: 4,
+              nReturned: 1894,
+              executionTimeMillisEstimate: 3058,
+              opens: 1,
+              closes: 1,
+              saveState: 164,
+              restoreState: 164,
+              isEOF: 1,
+              totalDocsExamined: 3788,
+              totalKeysExamined: 3788,
+              collectionScans: 0,
+              collectionSeeks: 3788,
+              indexScans: 0,
+              indexSeeks: 1895,
+              indexesUsed: [
+                'user_id_1_stars_1',
+                'business_id_1'
+              ],
+              innerOpens: 1894,
+              innerCloses: 1,
+              outerProjects: [
+                13
+              ],
+              outerCorrelated: [
+                19
+              ],
+              outerStage: {
+                stage: 'nlj',
+                planNodeId: 4,
+                nReturned: 1894,
+                executionTimeMillisEstimate: 2672,
+                opens: 1,
+                closes: 1,
+                saveState: 164,
+                restoreState: 164,
+                isEOF: 1,
+                totalDocsExamined: 1894,
+                totalKeysExamined: 1894,
+                collectionScans: 0,
+                collectionSeeks: 1894,
+                indexScans: 0,
+                indexSeeks: 1,
+                indexesUsed: [
+                  'user_id_1_stars_1'
+                ],
+                innerOpens: 1894,
+                innerCloses: 1,
+                outerProjects: [
+                  13
+                ],
+                outerCorrelated: [
+                  13
+                ],
+                outerStage: {
+                  stage: 'mkbson',
+                  planNodeId: 3,
+                  nReturned: 1894,
+                  executionTimeMillisEstimate: 2635,
+                  opens: 1,
+                  closes: 1,
+                  saveState: 164,
+                  restoreState: 164,
+                  isEOF: 1,
+                  objSlot: 13,
+                  rootSlot: 11,
+                  fieldBehavior: 'keep',
+                  fields: [
+                    'business_id'
+                  ],
+                  projectFields: [],
+                  projectSlots: [],
+                  forceNewObject: true,
+                  returnOldObject: false,
+                  inputStage: {
+                    stage: 'nlj',
+                    planNodeId: 2,
+                    nReturned: 1894,
+                    executionTimeMillisEstimate: 2629,
+                    opens: 1,
+                    closes: 1,
+                    saveState: 164,
+                    restoreState: 164,
+                    isEOF: 1,
+                    totalDocsExamined: 1894,
+                    totalKeysExamined: 1894,
+                    collectionScans: 0,
+                    collectionSeeks: 1894,
+                    indexScans: 0,
+                    indexSeeks: 1,
+                    indexesUsed: [
+                      'user_id_1_stars_1'
+                    ],
+                    innerOpens: 1894,
+                    innerCloses: 1,
+                    outerProjects: [],
+                    outerCorrelated: [
+                      4,
+                      7,
+                      8,
+                      9,
+                      10
+                    ],
+                    outerStage: {
+                      stage: 'cfilter',
+                      planNodeId: 1,
+                      nReturned: 1894,
+                      executionTimeMillisEstimate: 0,
+                      opens: 1,
+                      closes: 1,
+                      saveState: 164,
+                      restoreState: 164,
+                      isEOF: 1,
+                      numTested: 1,
+                      filter: '(exists(s5) && exists(s6)) ',
+                      inputStage: {
+                        stage: 'ixseek',
+                        planNodeId: 1,
+                        nReturned: 1894,
+                        executionTimeMillisEstimate: 0,
+                        opens: 1,
+                        closes: 1,
+                        saveState: 164,
+                        restoreState: 164,
+                        isEOF: 1,
+                        indexName: 'user_id_1_stars_1',
+                        keysExamined: 1894,
+                        seeks: 1,
+                        numReads: 1895,
+                        indexKeySlot: 9,
+                        recordIdSlot: 4,
+                        snapshotIdSlot: 7,
+                        indexIdentSlot: 8,
+                        outputSlots: [],
+                        indexKeysToInclude: '00000000000000000000000000000000',
+                        seekKeyLow: 's5 ',
+                        seekKeyHigh: 's6 '
+                      }
+                    },
+                    innerStage: {
+                      stage: 'limit',
+                      planNodeId: 2,
+                      nReturned: 1894,
+                      executionTimeMillisEstimate: 2621,
+                      opens: 1894,
+                      closes: 1,
+                      saveState: 164,
+                      restoreState: 164,
+                      isEOF: 1,
+                      limit: 1,
+                      inputStage: {
+                        stage: 'seek',
+                        planNodeId: 2,
+                        nReturned: 1894,
+                        executionTimeMillisEstimate: 2611,
+                        opens: 1894,
+                        closes: 1,
+                        saveState: 164,
+                        restoreState: 164,
+                        isEOF: 0,
+                        numReads: 1894,
+                        recordSlot: 11,
+                        recordIdSlot: 12,
+                        seekKeySlot: 4,
+                        snapshotIdSlot: 7,
+                        indexIdentSlot: 8,
+                        indexKeySlot: 9,
+                        indexKeyPatternSlot: 10,
+                        fields: [],
+                        outputSlots: []
+                      }
+                    }
+                  }
+                },
+                innerStage: {
+                  stage: 'project',
+                  planNodeId: 4,
+                  nReturned: 1894,
+                  executionTimeMillisEstimate: 21,
+                  opens: 1894,
+                  closes: 1,
+                  saveState: 164,
+                  restoreState: 164,
+                  isEOF: 1,
+                  projections: {
+                    '19': '\n' +
+                      '    if isArrayEmpty(s17) \n' +
+                      '    then [null] \n' +
+                      '    else s17 \n'
+                  },
+                  inputStage: {
+                    stage: 'group',
+                    planNodeId: 4,
+                    nReturned: 1894,
+                    executionTimeMillisEstimate: 21,
+                    opens: 1894,
+                    closes: 1,
+                    saveState: 164,
+                    restoreState: 164,
+                    isEOF: 1,
+                    groupBySlots: [],
+                    expressions: {
+                      '17': 'addToSet(s15) ',
+                      initExprs: {
+                        '17': null
+                      }
+                    },
+                    mergingExprs: {
+                      '18': 'aggSetUnion(s18) '
+                    },
+                    usedDisk: false,
+                    spills: 0,
+                    spilledRecords: 0,
+                    spilledDataStorageSize: 0,
+                    inputStage: {
+                      stage: 'unwind',
+                      planNodeId: 4,
+                      nReturned: 1894,
+                      executionTimeMillisEstimate: 10,
+                      opens: 1894,
+                      closes: 1894,
+                      saveState: 164,
+                      restoreState: 164,
+                      isEOF: 1,
+                      inputSlot: 14,
+                      outSlot: 15,
+                      outIndexSlot: 16,
+                      preserveNullAndEmptyArrays: 1,
+                      inputStage: {
+                        stage: 'project',
+                        planNodeId: 4,
+                        nReturned: 1894,
+                        executionTimeMillisEstimate: 10,
+                        opens: 1894,
+                        closes: 1894,
+                        saveState: 164,
+                        restoreState: 164,
+                        isEOF: 1,
+                        projections: {
+                          '14': 'getField(s13, "business_id") '
+                        },
+                        inputStage: {
+                          stage: 'limit',
+                          planNodeId: 4,
+                          nReturned: 1894,
+                          executionTimeMillisEstimate: 0,
+                          opens: 1894,
+                          closes: 1894,
+                          saveState: 164,
+                          restoreState: 164,
+                          isEOF: 1,
+                          limit: 1,
+                          inputStage: {
+                            stage: 'coscan',
+                            planNodeId: 4,
+                            nReturned: 1894,
+                            executionTimeMillisEstimate: 0,
+                            opens: 1894,
+                            closes: 1894,
+                            saveState: 164,
+                            restoreState: 164,
+                            isEOF: 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              innerStage: {
+                stage: 'limit',
+                planNodeId: 4,
+                nReturned: 1894,
+                executionTimeMillisEstimate: 386,
+                opens: 1894,
+                closes: 1,
+                saveState: 164,
+                restoreState: 164,
+                isEOF: 1,
+                limit: 1,
+                inputStage: {
+                  stage: 'union',
+                  planNodeId: 4,
+                  nReturned: 1894,
+                  executionTimeMillisEstimate: 386,
+                  opens: 1894,
+                  closes: 1,
+                  saveState: 164,
+                  restoreState: 164,
+                  isEOF: 0,
+                  inputSlots: [
+                    37,
+                    38
+                  ],
+                  outputSlots: [
+                    39
+                  ],
+                  inputStages: [
+                    {
+                      stage: 'project',
+                      planNodeId: 4,
+                      nReturned: 1894,
+                      executionTimeMillisEstimate: 386,
+                      opens: 1894,
+                      closes: 1894,
+                      saveState: 164,
+                      restoreState: 164,
+                      isEOF: 0,
+                      projections: {
+                        '37': 'getElement(s35, 0) '
+                      },
+                      inputStage: {
+                        stage: 'group',
+                        planNodeId: 4,
+                        nReturned: 1894,
+                        executionTimeMillisEstimate: 386,
+                        opens: 1894,
+                        closes: 1894,
+                        saveState: 164,
+                        restoreState: 164,
+                        isEOF: 0,
+                        groupBySlots: [],
+                        expressions: {
+                          '35': 'addToArrayCapped(s33, 104857600) ',
+                          initExprs: {
+                            '35': null
+                          }
+                        },
+                        mergingExprs: {
+                          '36': 'aggConcatArraysCapped(s36, 104857600) '
+                        },
+                        usedDisk: false,
+                        spills: 0,
+                        spilledRecords: 0,
+                        spilledDataStorageSize: 0,
+                        inputStage: {
+                          stage: 'filter',
+                          planNodeId: 4,
+                          nReturned: 1894,
+                          executionTimeMillisEstimate: 376,
+                          opens: 1894,
+                          closes: 1894,
+                          saveState: 164,
+                          restoreState: 164,
+                          isEOF: 1,
+                          numTested: 1894,
+                          filter: 'traverseF((getField(s33, "business_id") ?: null), lambda(l1.0) { isMember(l1.0, s19) }, true) ',
+                          inputStage: {
+                            stage: 'nlj',
+                            planNodeId: 4,
+                            nReturned: 1894,
+                            executionTimeMillisEstimate: 376,
+                            opens: 1894,
+                            closes: 1894,
+                            saveState: 164,
+                            restoreState: 164,
+                            isEOF: 1,
+                            totalDocsExamined: 1894,
+                            totalKeysExamined: 1894,
+                            collectionScans: 0,
+                            collectionSeeks: 1894,
+                            indexScans: 0,
+                            indexSeeks: 1894,
+                            indexesUsed: [
+                              'business_id_1'
+                            ],
+                            innerOpens: 1894,
+                            innerCloses: 1894,
+                            outerProjects: [],
+                            outerCorrelated: [
+                              29,
+                              31,
+                              32,
+                              30,
+                              28
+                            ],
+                            outerStage: {
+                              stage: 'nlj',
+                              planNodeId: 4,
+                              nReturned: 1894,
+                              executionTimeMillisEstimate: 334,
+                              opens: 1894,
+                              closes: 1894,
+                              saveState: 164,
+                              restoreState: 164,
+                              isEOF: 1,
+                              totalDocsExamined: 0,
+                              totalKeysExamined: 1894,
+                              collectionScans: 0,
+                              collectionSeeks: 0,
+                              indexScans: 0,
+                              indexSeeks: 1894,
+                              indexesUsed: [
+                                'business_id_1'
+                              ],
+                              innerOpens: 1894,
+                              innerCloses: 1894,
+                              outerProjects: [
+                                28
+                              ],
+                              outerCorrelated: [
+                                26,
+                                27
+                              ],
+                              outerStage: {
+                                stage: 'nlj',
+                                planNodeId: 4,
+                                nReturned: 1894,
+                                executionTimeMillisEstimate: 40,
+                                opens: 1894,
+                                closes: 1894,
+                                saveState: 164,
+                                restoreState: 164,
+                                isEOF: 1,
+                                totalDocsExamined: 0,
+                                totalKeysExamined: 0,
+                                collectionScans: 0,
+                                collectionSeeks: 0,
+                                indexScans: 0,
+                                indexSeeks: 0,
+                                indexesUsed: [],
+                                innerOpens: 1894,
+                                innerCloses: 1894,
+                                outerProjects: [],
+                                outerCorrelated: [
+                                  20
+                                ],
+                                outerStage: {
+                                  stage: 'unwind',
+                                  planNodeId: 4,
+                                  nReturned: 1894,
+                                  executionTimeMillisEstimate: 10,
+                                  opens: 1894,
+                                  closes: 1894,
+                                  saveState: 164,
+                                  restoreState: 164,
+                                  isEOF: 1,
+                                  inputSlot: 19,
+                                  outSlot: 20,
+                                  outIndexSlot: 21,
+                                  preserveNullAndEmptyArrays: 1,
+                                  inputStage: {
+                                    stage: 'limit',
+                                    planNodeId: 4,
+                                    nReturned: 1894,
+                                    executionTimeMillisEstimate: 10,
+                                    opens: 1894,
+                                    closes: 1894,
+                                    saveState: 164,
+                                    restoreState: 164,
+                                    isEOF: 1,
+                                    limit: 1,
+                                    inputStage: {
+                                      stage: 'coscan',
+                                      planNodeId: 4,
+                                      nReturned: 1894,
+                                      executionTimeMillisEstimate: 0,
+                                      opens: 1894,
+                                      closes: 1894,
+                                      saveState: 164,
+                                      restoreState: 164,
+                                      isEOF: 0
+                                    }
+                                  }
+                                },
+                                innerStage: {
+                                  stage: 'project',
+                                  planNodeId: 4,
+                                  nReturned: 1894,
+                                  executionTimeMillisEstimate: 30,
+                                  opens: 1894,
+                                  closes: 1894,
+                                  saveState: 164,
+                                  restoreState: 164,
+                                  isEOF: 1,
+                                  projections: {
+                                    '26': 'ks(1ll, 0, s25, 1ll) ',
+                                    '27': 'ks(1ll, 0, s25, 2ll) ',
+                                    '28': '{"business_id" : 1} '
+                                  },
+                                  inputStage: {
+                                    stage: 'union',
+                                    planNodeId: 4,
+                                    nReturned: 1894,
+                                    executionTimeMillisEstimate: 10,
+                                    opens: 1894,
+                                    closes: 1894,
+                                    saveState: 164,
+                                    restoreState: 164,
+                                    isEOF: 1,
+                                    inputSlots: [
+                                      22,
+                                      23,
+                                      24
+                                    ],
+                                    outputSlots: [
+                                      25
+                                    ],
+                                    inputStages: [
+                                      {
+                                        stage: 'cfilter',
+                                        planNodeId: 4,
+                                        nReturned: 0,
+                                        executionTimeMillisEstimate: 0,
+                                        opens: 1894,
+                                        closes: 3788,
+                                        saveState: 164,
+                                        restoreState: 164,
+                                        isEOF: 1,
+                                        numTested: 1894,
+                                        filter: 'isNull(s20) ',
+                                        inputStage: {
+                                          stage: 'project',
+                                          planNodeId: 4,
+                                          nReturned: 0,
+                                          executionTimeMillisEstimate: 0,
+                                          opens: 0,
+                                          closes: 0,
+                                          saveState: 164,
+                                          restoreState: 164,
+                                          isEOF: 0,
+                                          projections: {
+                                            '22': 'undefined '
+                                          },
+                                          inputStage: {
+                                            stage: 'limit',
+                                            planNodeId: 4,
+                                            nReturned: 0,
+                                            executionTimeMillisEstimate: 0,
+                                            opens: 0,
+                                            closes: 0,
+                                            saveState: 164,
+                                            restoreState: 164,
+                                            isEOF: 0,
+                                            inputStage: {
+                                              stage: 'coscan',
+                                              planNodeId: 4,
+                                              nReturned: 0,
+                                              executionTimeMillisEstimate: 0,
+                                              opens: 0,
+                                              closes: 0,
+                                              saveState: 164,
+                                              restoreState: 164,
+                                              isEOF: 0
+                                            }
+                                          }
+                                        }
+                                      },
+                                      {
+                                        stage: 'filter',
+                                        planNodeId: 4,
+                                        nReturned: 0,
+                                        executionTimeMillisEstimate: 10,
+                                        opens: 1894,
+                                        closes: 1894,
+                                        saveState: 164,
+                                        restoreState: 164,
+                                        isEOF: 1,
+                                        numTested: 1894,
+                                        filter: '(isArray(s20) && !(isMember(s23, s19))) ',
+                                        inputStage: {
+                                          stage: 'project',
+                                          planNodeId: 4,
+                                          nReturned: 1894,
+                                          executionTimeMillisEstimate: 10,
+                                          opens: 1894,
+                                          closes: 1894,
+                                          saveState: 164,
+                                          restoreState: 164,
+                                          isEOF: 1,
+                                          projections: {
+                                            '23': '(getElement(s20, 0) ?: undefined) '
+                                          },
+                                          inputStage: {
+                                            stage: 'limit',
+                                            planNodeId: 4,
+                                            nReturned: 1894,
+                                            executionTimeMillisEstimate: 10,
+                                            opens: 1894,
+                                            closes: 1894,
+                                            saveState: 164,
+                                            restoreState: 164,
+                                            isEOF: 1,
+                                            limit: 1,
+                                            inputStage: {
+                                              stage: 'coscan',
+                                              planNodeId: 4,
+                                              nReturned: 1894,
+                                              executionTimeMillisEstimate: 0,
+                                              opens: 1894,
+                                              closes: 1894,
+                                              saveState: 164,
+                                              restoreState: 164,
+                                              isEOF: 0
+                                            }
+                                          }
+                                        }
+                                      },
+                                      {
+                                        stage: 'project',
+                                        planNodeId: 4,
+                                        nReturned: 1894,
+                                        executionTimeMillisEstimate: 0,
+                                        opens: 1894,
+                                        closes: 1894,
+                                        saveState: 164,
+                                        restoreState: 164,
+                                        isEOF: 1,
+                                        projections: {
+                                          '24': 's20 '
+                                        },
+                                        inputStage: {
+                                          stage: 'limit',
+                                          planNodeId: 4,
+                                          nReturned: 1894,
+                                          executionTimeMillisEstimate: 0,
+                                          opens: 1894,
+                                          closes: 1894,
+                                          saveState: 164,
+                                          restoreState: 164,
+                                          isEOF: 1,
+                                          limit: 1,
+                                          inputStage: {
+                                            stage: 'coscan',
+                                            planNodeId: 4,
+                                            nReturned: 1894,
+                                            executionTimeMillisEstimate: 0,
+                                            opens: 1894,
+                                            closes: 1894,
+                                            saveState: 164,
+                                            restoreState: 164,
+                                            isEOF: 0
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              innerStage: {
+                                stage: 'ixseek',
+                                planNodeId: 4,
+                                nReturned: 1894,
+                                executionTimeMillisEstimate: 284,
+                                opens: 1894,
+                                closes: 1894,
+                                saveState: 164,
+                                restoreState: 164,
+                                isEOF: 1,
+                                indexName: 'business_id_1',
+                                keysExamined: 1894,
+                                seeks: 1894,
+                                numReads: 3788,
+                                indexKeySlot: 30,
+                                recordIdSlot: 29,
+                                snapshotIdSlot: 31,
+                                indexIdentSlot: 32,
+                                outputSlots: [],
+                                indexKeysToInclude: '00000000000000000000000000000000',
+                                seekKeyLow: 's26 ',
+                                seekKeyHigh: 's27 '
+                              }
+                            },
+                            innerStage: {
+                              stage: 'limit',
+                              planNodeId: 4,
+                              nReturned: 1894,
+                              executionTimeMillisEstimate: 42,
+                              opens: 1894,
+                              closes: 1894,
+                              saveState: 164,
+                              restoreState: 164,
+                              isEOF: 1,
+                              limit: 1,
+                              inputStage: {
+                                stage: 'seek',
+                                planNodeId: 4,
+                                nReturned: 1894,
+                                executionTimeMillisEstimate: 32,
+                                opens: 1894,
+                                closes: 1894,
+                                saveState: 164,
+                                restoreState: 164,
+                                isEOF: 0,
+                                numReads: 1894,
+                                recordSlot: 33,
+                                recordIdSlot: 34,
+                                seekKeySlot: 29,
+                                snapshotIdSlot: 31,
+                                indexIdentSlot: 32,
+                                indexKeySlot: 30,
+                                indexKeyPatternSlot: 28,
+                                fields: [],
+                                outputSlots: []
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      stage: 'project',
+                      planNodeId: 4,
+                      nReturned: 0,
+                      executionTimeMillisEstimate: 0,
+                      opens: 0,
+                      closes: 0,
+                      saveState: 164,
+                      restoreState: 164,
+                      isEOF: 0,
+                      projections: {
+                        '38': '[] '
+                      },
+                      inputStage: {
+                        stage: 'limit',
+                        planNodeId: 4,
+                        nReturned: 0,
+                        executionTimeMillisEstimate: 0,
+                        opens: 0,
+                        closes: 0,
+                        saveState: 164,
+                        restoreState: 164,
+                        isEOF: 0,
+                        inputStage: {
+                          stage: 'coscan',
+                          planNodeId: 4,
+                          nReturned: 0,
+                          executionTimeMillisEstimate: 0,
+                          opens: 0,
+                          closes: 0,
+                          saveState: 164,
+                          restoreState: 164,
+                          isEOF: 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1894,
+      executionTimeMillisEstimate: 3186
+    },
+    {
+      '$addFields': {
+        business_info: {
+          categoriesArray: {
+            '$map': {
+              input: {
+                '$cond': [
+                  {
+                    '$ne': [
+                      {
+                        '$type': [
+                          {
+                            '$arrayElemAt': [
+                              '$business_info.categories',
+                              {
+                                '$const': 0
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        '$const': 'null'
+                      }
+                    ]
+                  },
+                  {
+                    '$split': [
+                      {
+                        '$arrayElemAt': [
+                          '$business_info.categories',
+                          {
+                            '$const': 0
+                          }
+                        ]
+                      },
+                      {
+                        '$const': ', '
+                      }
+                    ]
+                  },
+                  {
+                    '$const': []
+                  }
+                ]
+              },
+              as: 'category',
+              in: {
+                '$replaceAll': {
+                  input: {
+                    '$replaceAll': {
+                      input: {
+                        '$trim': {
+                          input: '$$category'
+                        }
+                      },
+                      find: {
+                        '$const': '('
+                      },
+                      replacement: {
+                        '$const': '\\('
+                      }
+                    }
+                  },
+                  find: {
+                    '$const': ')'
+                  },
+                  replacement: {
+                    '$const': '\\)'
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1894,
+      executionTimeMillisEstimate: 3186
+    },
+    {
+      '$unwind': {
+        path: '$business_info'
+      },
+      nReturned: 1894,
+      executionTimeMillisEstimate: 3186
+    },
+    {
+      '$unwind': {
+        path: '$business_info.categoriesArray'
+      },
+      nReturned: 9148,
+      executionTimeMillisEstimate: 3196
+    },
+    {
+      '$project': {
+        business_id: true,
+        city: '$business_info.city',
+        category: '$business_info.categoriesArray',
+        _id: false
+      },
+      nReturned: 9148,
+      executionTimeMillisEstimate: 3206
+    },
+    {
+      '$out': {
+        coll: 'user_reviewed_business',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 3206
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'review',
+    pipeline: [
+      {
+        '$match': {
+          user_id: '_BcWyKQL16ndpBdggh2kNA',
+          stars: {
+            '$gte': 4
+          }
+        }
+      },
+      {
+        '$lookup': {
+          from: 'business',
+          localField: 'business_id',
+          foreignField: 'business_id',
+          as: 'business_info'
+        }
+      },
+      {
+        '$addFields': {
+          'business_info.categoriesArray': {
+            '$map': {
+              input: {
+                '$cond': {
+                  if: {
+                    '$ne': [
+                      {
+                        '$type': {
+                          '$arrayElemAt': [
+                            '$business_info.categories',
+                            0
+                          ]
+                        }
+                      },
+                      'null'
+                    ]
+                  },
+                  then: {
+                    '$split': [
+                      {
+                        '$arrayElemAt': [
+                          '$business_info.categories',
+                          0
+                        ]
+                      },
+                      ', '
+                    ]
+                  },
+                  else: []
+                }
+              },
+              as: 'category',
+              in: {
+                '$replaceAll': {
+                  input: {
+                    '$replaceAll': {
+                      input: {
+                        '$trim': {
+                          input: '$$category'
+                        }
+                      },
+                      find: '(',
+                      replacement: '\\('
+                    }
+                  },
+                  find: ')',
+                  replacement: '\\)'
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        '$unwind': '$business_info'
+      },
+      {
+        '$unwind': '$business_info.categoriesArray'
+      },
+      {
+        '$project': {
+          _id: 0,
+          business_id: 1,
+          city: '$business_info.city',
+          category: '$business_info.categoriesArray'
+        }
+      },
+      {
+        '$out': 'user_reviewed_business'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

@@ -1,0 +1,166 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.review',
+          indexFilterSet: false,
+          parsedQuery: {},
+          queryHash: '84693C35',
+          planCacheKey: '84693C35',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              date: 1,
+              review_id: 1,
+              stars: 1,
+              text: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              direction: 'forward'
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 6990280,
+          executionTimeMillis: 447996,
+          totalKeysExamined: 0,
+          totalDocsExamined: 6990280,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 6990280,
+            executionTimeMillisEstimate: 178108,
+            works: 6990281,
+            advanced: 6990280,
+            needTime: 0,
+            needYield: 0,
+            saveState: 13568,
+            restoreState: 13568,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              date: 1,
+              review_id: 1,
+              stars: 1,
+              text: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              nReturned: 6990280,
+              executionTimeMillisEstimate: 165550,
+              works: 6990281,
+              advanced: 6990280,
+              needTime: 0,
+              needYield: 0,
+              saveState: 13568,
+              restoreState: 13568,
+              isEOF: 1,
+              direction: 'forward',
+              docsExamined: 6990280
+            }
+          }
+        }
+      },
+      nReturned: 6990280,
+      executionTimeMillisEstimate: 196633
+    },
+    {
+      '$lookup': {
+        from: 'matched_business',
+        as: 'matched',
+        localField: 'business_id',
+        foreignField: 'business_id',
+        unwinding: {
+          preserveNullAndEmptyArrays: false
+        }
+      },
+      totalDocsExamined: 69902800,
+      totalKeysExamined: 0,
+      collectionScans: 6990280,
+      indexesUsed: [],
+      nReturned: 1468,
+      executionTimeMillisEstimate: 447976
+    },
+    {
+      '$project': {
+        review_id: true,
+        text: '$text',
+        business_id: '$matched.business_id',
+        match_count: '$matched.match_count',
+        stars: '$stars',
+        date: '$date',
+        _id: false
+      },
+      nReturned: 1468,
+      executionTimeMillisEstimate: 447976
+    },
+    {
+      '$out': {
+        coll: 'business_reviews',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 447976
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'review',
+    pipeline: [
+      {
+        '$lookup': {
+          from: 'matched_business',
+          localField: 'business_id',
+          foreignField: 'business_id',
+          as: 'matched'
+        }
+      },
+      {
+        '$unwind': '$matched'
+      },
+      {
+        '$project': {
+          _id: 0,
+          review_id: 1,
+          text: '$text',
+          business_id: '$matched.business_id',
+          match_count: '$matched.match_count',
+          stars: '$stars',
+          date: '$date'
+        }
+      },
+      {
+        '$out': 'business_reviews'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

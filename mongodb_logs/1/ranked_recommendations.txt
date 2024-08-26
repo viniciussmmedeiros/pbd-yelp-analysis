@@ -1,0 +1,246 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.recommended_businesses',
+          indexFilterSet: false,
+          parsedQuery: {},
+          queryHash: '5E146DB7',
+          planCacheKey: '5E146DB7',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              match_count: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              direction: 'forward'
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 27584,
+          executionTimeMillis: 3352,
+          totalKeysExamined: 0,
+          totalDocsExamined: 27584,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 27584,
+            executionTimeMillisEstimate: 64,
+            works: 27585,
+            advanced: 27584,
+            needTime: 0,
+            needYield: 0,
+            saveState: 30,
+            restoreState: 30,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              match_count: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              nReturned: 27584,
+              executionTimeMillisEstimate: 27,
+              works: 27585,
+              advanced: 27584,
+              needTime: 0,
+              needYield: 0,
+              saveState: 30,
+              restoreState: 30,
+              isEOF: 1,
+              direction: 'forward',
+              docsExamined: 27584
+            }
+          }
+        }
+      },
+      nReturned: 27584,
+      executionTimeMillisEstimate: 163
+    },
+    {
+      '$lookup': {
+        from: 'user_reviewed_city',
+        as: 'city_info',
+        localField: 'city',
+        foreignField: 'city',
+        unwinding: {
+          preserveNullAndEmptyArrays: false
+        }
+      },
+      totalDocsExamined: 4413440,
+      totalKeysExamined: 0,
+      collectionScans: 27584,
+      indexesUsed: [],
+      nReturned: 27584,
+      executionTimeMillisEstimate: 3219
+    },
+    {
+      '$sort': {
+        sortKey: {
+          city: 1,
+          match_count: -1
+        }
+      },
+      totalDataSizeSortedBytesEstimate: 17583693,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      nReturned: 27584,
+      executionTimeMillisEstimate: 3264
+    },
+    {
+      '$_internalSetWindowFields': {
+        partitionBy: '$city',
+        sortBy: {
+          match_count: -1
+        },
+        output: {
+          rank: {
+            '$denseRank': {}
+          }
+        }
+      },
+      maxFunctionMemoryUsageBytes: {
+        rank: 80
+      },
+      maxTotalMemoryUsageBytes: 1677,
+      usedDisk: false,
+      nReturned: 27584,
+      executionTimeMillisEstimate: 3324
+    },
+    {
+      '$match': {
+        rank: {
+          '$eq': 1
+        }
+      },
+      nReturned: 227,
+      executionTimeMillisEstimate: 3347
+    },
+    {
+      '$project': {
+        city: true,
+        business_id: true,
+        categories: true,
+        match_count: true,
+        review_count: '$city_info.review_count',
+        _id: false
+      },
+      nReturned: 227,
+      executionTimeMillisEstimate: 3347
+    },
+    {
+      '$sort': {
+        sortKey: {
+          review_count: -1
+        },
+        limit: 10
+      },
+      totalDataSizeSortedBytesEstimate: 5286,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      nReturned: 10,
+      executionTimeMillisEstimate: 3347
+    },
+    {
+      '$out': {
+        coll: 'ranked_recommendations',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 3347
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'recommended_businesses',
+    pipeline: [
+      {
+        '$lookup': {
+          from: 'user_reviewed_city',
+          localField: 'city',
+          foreignField: 'city',
+          as: 'city_info'
+        }
+      },
+      {
+        '$unwind': '$city_info'
+      },
+      {
+        '$setWindowFields': {
+          partitionBy: '$city',
+          sortBy: {
+            match_count: -1
+          },
+          output: {
+            rank: {
+              '$denseRank': {}
+            }
+          }
+        }
+      },
+      {
+        '$match': {
+          rank: 1
+        }
+      },
+      {
+        '$project': {
+          _id: 0,
+          city: 1,
+          business_id: 1,
+          categories: 1,
+          match_count: 1,
+          review_count: '$city_info.review_count'
+        }
+      },
+      {
+        '$sort': {
+          review_count: -1
+        }
+      },
+      {
+        '$limit': 10
+      },
+      {
+        '$out': 'ranked_recommendations'
+      }
+    ],
+    allowDiskUse: true,
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

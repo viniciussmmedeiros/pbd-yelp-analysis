@@ -1,0 +1,280 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.review',
+          indexFilterSet: false,
+          parsedQuery: {
+            user_id: {
+              '$eq': '_BcWyKQL16ndpBdggh2kNA'
+            }
+          },
+          queryHash: '308AC739',
+          planCacheKey: 'E54693E5',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              inputStage: {
+                stage: 'IXSCAN',
+                keyPattern: {
+                  user_id: 1
+                },
+                indexName: 'user_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  user_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  user_id: [
+                    '["_BcWyKQL16ndpBdggh2kNA", "_BcWyKQL16ndpBdggh2kNA"]'
+                  ]
+                }
+              }
+            }
+          },
+          rejectedPlans: [
+            {
+              stage: 'PROJECTION_SIMPLE',
+              transformBy: {
+                business_id: 1,
+                _id: 0
+              },
+              inputStage: {
+                stage: 'FETCH',
+                inputStage: {
+                  stage: 'IXSCAN',
+                  keyPattern: {
+                    user_id: 1,
+                    stars: 1
+                  },
+                  indexName: 'user_id_1_stars_1',
+                  isMultiKey: false,
+                  multiKeyPaths: {
+                    user_id: [],
+                    stars: []
+                  },
+                  isUnique: false,
+                  isSparse: false,
+                  isPartial: false,
+                  indexVersion: 2,
+                  direction: 'forward',
+                  indexBounds: {
+                    user_id: [
+                      '["_BcWyKQL16ndpBdggh2kNA", "_BcWyKQL16ndpBdggh2kNA"]'
+                    ],
+                    stars: [
+                      '[MinKey, MaxKey]'
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 3048,
+          executionTimeMillis: 2034,
+          totalKeysExamined: 3048,
+          totalDocsExamined: 3048,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 3048,
+            executionTimeMillisEstimate: 1579,
+            works: 3049,
+            advanced: 3048,
+            needTime: 0,
+            needYield: 0,
+            saveState: 96,
+            restoreState: 96,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              nReturned: 3048,
+              executionTimeMillisEstimate: 1577,
+              works: 3049,
+              advanced: 3048,
+              needTime: 0,
+              needYield: 0,
+              saveState: 96,
+              restoreState: 96,
+              isEOF: 1,
+              docsExamined: 3048,
+              alreadyHasObj: 0,
+              inputStage: {
+                stage: 'IXSCAN',
+                nReturned: 3048,
+                executionTimeMillisEstimate: 25,
+                works: 3049,
+                advanced: 3048,
+                needTime: 0,
+                needYield: 0,
+                saveState: 96,
+                restoreState: 96,
+                isEOF: 1,
+                keyPattern: {
+                  user_id: 1
+                },
+                indexName: 'user_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  user_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  user_id: [
+                    '["_BcWyKQL16ndpBdggh2kNA", "_BcWyKQL16ndpBdggh2kNA"]'
+                  ]
+                },
+                keysExamined: 3048,
+                seeks: 1,
+                dupsTested: 0,
+                dupsDropped: 0
+              }
+            }
+          }
+        }
+      },
+      nReturned: 3048,
+      executionTimeMillisEstimate: 1702
+    },
+    {
+      '$lookup': {
+        from: 'business',
+        as: 'business',
+        localField: 'business_id',
+        foreignField: 'business_id',
+        unwinding: {
+          preserveNullAndEmptyArrays: false
+        }
+      },
+      totalDocsExamined: 3049,
+      totalKeysExamined: 3049,
+      collectionScans: 0,
+      indexesUsed: [
+        'business_id_1'
+      ],
+      nReturned: 3048,
+      executionTimeMillisEstimate: 1906
+    },
+    {
+      '$group': {
+        _id: '$business.city',
+        review_count: {
+          '$sum': {
+            '$const': 1
+          }
+        }
+      },
+      maxAccumulatorMemoryUsageBytes: {
+        review_count: 15360
+      },
+      totalOutputDataSizeBytes: 40055,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      numBytesSpilledEstimate: 0,
+      spilledRecords: 0,
+      nReturned: 160,
+      executionTimeMillisEstimate: 1906
+    },
+    {
+      '$project': {
+        _id: true,
+        review_count: true,
+        city: '$_id'
+      },
+      nReturned: 160,
+      executionTimeMillisEstimate: 1906
+    },
+    {
+      '$out': {
+        coll: 'user_reviewed_city',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 1906
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'review',
+    pipeline: [
+      {
+        '$match': {
+          user_id: '_BcWyKQL16ndpBdggh2kNA'
+        }
+      },
+      {
+        '$lookup': {
+          from: 'business',
+          localField: 'business_id',
+          foreignField: 'business_id',
+          as: 'business'
+        }
+      },
+      {
+        '$unwind': '$business'
+      },
+      {
+        '$group': {
+          _id: '$business.city',
+          review_count: {
+            '$sum': 1
+          }
+        }
+      },
+      {
+        '$project': {
+          city: '$_id',
+          review_count: 1
+        }
+      },
+      {
+        '$out': 'user_reviewed_city'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

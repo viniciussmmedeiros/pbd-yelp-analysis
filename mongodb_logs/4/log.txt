@@ -1,0 +1,437 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.checkin',
+          indexFilterSet: false,
+          parsedQuery: {
+            business_id: {
+              '$eq': '00rY5F9ltW-IWf2Ev96kOg'
+            }
+          },
+          queryHash: '2CE6F99A',
+          planCacheKey: '0BE8409A',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              date: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              inputStage: {
+                stage: 'IXSCAN',
+                keyPattern: {
+                  business_id: 1
+                },
+                indexName: 'business_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  business_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  business_id: [
+                    '["00rY5F9ltW-IWf2Ev96kOg", "00rY5F9ltW-IWf2Ev96kOg"]'
+                  ]
+                }
+              }
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 1,
+          executionTimeMillis: 5,
+          totalKeysExamined: 1,
+          totalDocsExamined: 1,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 1,
+            executionTimeMillisEstimate: 0,
+            works: 2,
+            advanced: 1,
+            needTime: 0,
+            needYield: 0,
+            saveState: 1,
+            restoreState: 1,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              date: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              nReturned: 1,
+              executionTimeMillisEstimate: 0,
+              works: 2,
+              advanced: 1,
+              needTime: 0,
+              needYield: 0,
+              saveState: 1,
+              restoreState: 1,
+              isEOF: 1,
+              docsExamined: 1,
+              alreadyHasObj: 0,
+              inputStage: {
+                stage: 'IXSCAN',
+                nReturned: 1,
+                executionTimeMillisEstimate: 0,
+                works: 2,
+                advanced: 1,
+                needTime: 0,
+                needYield: 0,
+                saveState: 1,
+                restoreState: 1,
+                isEOF: 1,
+                keyPattern: {
+                  business_id: 1
+                },
+                indexName: 'business_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  business_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  business_id: [
+                    '["00rY5F9ltW-IWf2Ev96kOg", "00rY5F9ltW-IWf2Ev96kOg"]'
+                  ]
+                },
+                keysExamined: 1,
+                seeks: 1,
+                dupsTested: 0,
+                dupsDropped: 0
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$addFields': {
+        checkin_hours: {
+          '$map': {
+            input: {
+              '$split': [
+                '$date',
+                {
+                  '$const': ','
+                }
+              ]
+            },
+            as: 'dateString',
+            in: {
+              '$hour': {
+                date: {
+                  '$convert': {
+                    input: '$$dateString',
+                    to: {
+                      '$const': 'date'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$unwind': {
+        path: '$checkin_hours'
+      },
+      nReturned: 800,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$group': {
+        _id: {
+          business_id: '$business_id',
+          checkin_hour: '$checkin_hours'
+        },
+        checkin_count: {
+          '$sum': {
+            '$const': 1
+          }
+        }
+      },
+      maxAccumulatorMemoryUsageBytes: {
+        checkin_count: 1824
+      },
+      totalOutputDataSizeBytes: 10032,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      numBytesSpilledEstimate: 0,
+      spilledRecords: 0,
+      nReturned: 19,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$sort': {
+        sortKey: {
+          checkin_count: 1
+        }
+      },
+      totalDataSizeSortedBytesEstimate: 10184,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      nReturned: 19,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$group': {
+        _id: '$_id.business_id',
+        busiest_hour: {
+          '$last': {
+            hour: '$_id.checkin_hour',
+            count: '$checkin_count'
+          }
+        },
+        least_busy_hour: {
+          '$first': {
+            hour: '$_id.checkin_hour',
+            count: '$checkin_count'
+          }
+        }
+      },
+      maxAccumulatorMemoryUsageBytes: {
+        busiest_hour: 309,
+        least_busy_hour: 317
+      },
+      totalOutputDataSizeBytes: 805,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      numBytesSpilledEstimate: 0,
+      spilledRecords: 0,
+      nReturned: 1,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$project': {
+        _id: true,
+        business_id: '$_id',
+        busiest_hour: '$busiest_hour.hour',
+        max_checkins: '$busiest_hour.count',
+        least_busy_hour: '$least_busy_hour.hour',
+        min_checkins: '$least_busy_hour.count'
+      },
+      nReturned: 1,
+      executionTimeMillisEstimate: 0
+    },
+    {
+      '$lookup': {
+        from: 'business',
+        as: 'business_doc',
+        localField: 'business_id',
+        foreignField: 'business_id',
+        unwinding: {
+          preserveNullAndEmptyArrays: false
+        }
+      },
+      totalDocsExamined: 1,
+      totalKeysExamined: 1,
+      collectionScans: 0,
+      indexesUsed: [
+        'business_id_1'
+      ],
+      nReturned: 1,
+      executionTimeMillisEstimate: 4
+    },
+    {
+      '$set': {
+        business_doc: {
+          busiest_hour: {
+            '$convert': {
+              input: '$busiest_hour',
+              to: {
+                '$const': 'string'
+              }
+            }
+          },
+          least_busy_hour: {
+            '$convert': {
+              input: '$least_busy_hour',
+              to: {
+                '$const': 'string'
+              }
+            }
+          }
+        }
+      },
+      nReturned: 1,
+      executionTimeMillisEstimate: 4
+    },
+    {
+      '$replaceRoot': {
+        newRoot: '$business_doc'
+      },
+      nReturned: 1,
+      executionTimeMillisEstimate: 4
+    },
+    {
+      '$merge': {
+        into: {
+          db: 'yelp',
+          coll: 'business'
+        },
+        on: '_id',
+        whenMatched: 'merge',
+        whenNotMatched: 'discard'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 4
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'checkin',
+    pipeline: [
+      {
+        '$match': {
+          business_id: '00rY5F9ltW-IWf2Ev96kOg'
+        }
+      },
+      {
+        '$addFields': {
+          checkin_hours: {
+            '$map': {
+              input: {
+                '$split': [
+                  '$date',
+                  ','
+                ]
+              },
+              as: 'dateString',
+              in: {
+                '$hour': {
+                  '$toDate': '$$dateString'
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        '$unwind': '$checkin_hours'
+      },
+      {
+        '$group': {
+          _id: {
+            business_id: '$business_id',
+            checkin_hour: '$checkin_hours'
+          },
+          checkin_count: {
+            '$sum': 1
+          }
+        }
+      },
+      {
+        '$sort': {
+          checkin_count: 1
+        }
+      },
+      {
+        '$group': {
+          _id: '$_id.business_id',
+          busiest_hour: {
+            '$last': {
+              hour: '$_id.checkin_hour',
+              count: '$checkin_count'
+            }
+          },
+          least_busy_hour: {
+            '$first': {
+              hour: '$_id.checkin_hour',
+              count: '$checkin_count'
+            }
+          }
+        }
+      },
+      {
+        '$project': {
+          business_id: '$_id',
+          busiest_hour: '$busiest_hour.hour',
+          max_checkins: '$busiest_hour.count',
+          least_busy_hour: '$least_busy_hour.hour',
+          min_checkins: '$least_busy_hour.count'
+        }
+      },
+      {
+        '$lookup': {
+          from: 'business',
+          localField: 'business_id',
+          foreignField: 'business_id',
+          as: 'business_doc'
+        }
+      },
+      {
+        '$unwind': '$business_doc'
+      },
+      {
+        '$set': {
+          'business_doc.busiest_hour': {
+            '$toString': '$busiest_hour'
+          },
+          'business_doc.least_busy_hour': {
+            '$toString': '$least_busy_hour'
+          }
+        }
+      },
+      {
+        '$replaceRoot': {
+          newRoot: '$business_doc'
+        }
+      },
+      {
+        '$merge': {
+          into: 'business',
+          whenMatched: 'merge',
+          whenNotMatched: 'discard'
+        }
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

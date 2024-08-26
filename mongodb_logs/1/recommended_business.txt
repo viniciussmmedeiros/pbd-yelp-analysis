@@ -1,0 +1,724 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.business',
+          indexFilterSet: false,
+          parsedQuery: {
+            business_id: {
+              '$not': {
+                '$in': [
+                  '--sXnWH9Xm6_NvIjyuA99w',
+                  '-1yftDfgOUlxe_IACM5PFg',
+                  '-4HMjEGQgduIMMTe0WPQBA',
+                  '-4dYswJy7SPcbcERvitmIg',
+                  '-5Rah4ZvWsDu4oilUZxhtw',
+                  '-5jh7Rgm_jP2SclLrZG80A',
+                  '-5uzjjKUA-kt81j605d5Jg',
+                  '-6MEKOmFu6jckT3pruSxHg',
+                  '-AanHawaDlzWHQjrqRRWig',
+                  '-AbzJTLQdbdQrhRzQLgsKA',
+                  '-CGp5Ix4u_Mt45nrWvHSaQ',
+                  '-JStjL-8mRZq4ov4uI1FaQ',
+                  '-KWel73upKHxstRCr9JGLw',
+                  '-KZwzYMLpSMZw7JOY1h5yA',
+                  '-Mig1TcxvFWREy-pfx7rZQ',
+                  '-Oc3gtgcrsApbBPCUoA4rg',
+                  '-QG6KSRQKTQ80--wqrnLTg',
+                  '-QI8Qi8XWH3D8y8ethnajA',
+                  '-R3PWE4ycIc-xElcPqqetw',
+                  '-SgBPXjleGQqruChlFE03w',
+                  '-UJ7ZTb3zfmqZogmy3fnGg',
+                  '-V0vIgo6196MDn_x3ZaYmA',
+                  '-Y3htUtPT7AMBgjx9R9PhQ',
+                  '-aUw9tAKRs_Lrw47U-YSBw',
+                  '-cE9GrThz6HHn2zdpoqY_w',
+                  '-esrlwUKa3cQWouOr5y9Rw',
+                  '-qWhas31o61V6vC6yo6NWw',
+                  '-qkHmhgvNbn9N29nN41IYw',
+                  '-qk__vjJxfJrCWn3UaMv_Q',
+                  '-rN0k6vC7pJS0p4b6a1xRA',
+                  '-wpjPXundFyZCm9khW2wLg',
+                  '-xV7ESuXJglzA_kdd8a7Mw',
+                  '0-7N3z_cb3Z1xMGDrbez6w',
+                  '00szsg8vQy6yX5f-m9sI4A',
+                  '02PoEXj8TR7FQZvUV48o8w',
+                  '04UD14gamNjLY0IDYVhHJg',
+                  '09yzPKqhvm_kJo6S5vsS3w',
+                  '0FzbiQyBnFnH1OkMol_mgQ',
+                  '0HpHVZFlEH5csxSBRVSmsA',
+                  '0IOTWdSW74tAh0SkEVIIiA',
+                  '0IYUdfag5M07C_darC8boA',
+                  '0KEMPs7BD_WHI6zGpDcKjw',
+                  '0LuNIBiqt24Tv49aWc8AFA',
+                  '0OtQaTauMzH0JM-NwJdXdw',
+                  '0RO4HyAgoCOqbKqkspoGNg',
+                  '0RcD7PpjWTMcN86NwzgBag',
+                  '0S3TvsmbCeOZ9UitnpRd1A',
+                  '0SWqECZ39P2MlmeXbKnUjg',
+                  '0S_4jegr9uR8UqdeMJdd2A',
+                  '0TZhSVLu-HSNSVSQANvx1Q',
+                  '0UCh75Aoz8YMe9nrnjawwg',
+                  '0XmjnnJu-offU4n-f9apLQ',
+                  '0b7SbKpbNmmoEFCw9Bwwbg',
+                  '0dWrbjWlPDBq3WpDq_bCxQ',
+                  '0eQ89dmtqdPgLDD8jMUZ4A',
+                  '0i1BtBKOqL50E80CxuuFzA',
+                  '0i65fgMamX8UtWmi8KzzGg',
+                  '0jQPPEppYjGQ2higy6JvCg',
+                  '0j_9DoKPu1FEYE_4kcp3uQ',
+                  '0k8DG6BPaVKCRfnWJZhLUA',
+                  '0kLivwqFCIAb2V7Vhndpow',
+                  '0l_njS4wGMadAk1b4nZRUA',
+                  '0n6alVslpokrrvdrlp871A',
+                  '0rmGHYrR4GR_HTG1rLLerA',
+                  '0sEQcUD5WEdwBJBXavafHA',
+                  '0swbH3HFkIX9SvMkRwCMSA',
+                  '0v5gedzRunqlbgtj3u1QCQ',
+                  '0yN1rxCrEKqQIUk-nqyWVw',
+                  '1-KxvPja7GvoCYVIgxgAOw',
+                  '115Vnqj_18yog_PWIV0JzA',
+                  '11uo3yawm_d1DWCCMpM1tw',
+                  '13HH552okR9DsjANReVeFQ',
+                  '152JQDYumtZAFlTsmFAxaA',
+                  '17MK8qagV374AuUA4sXuIA',
+                  '18790ccUVHejWqCmkoSJjA',
+                  '19l4qdS2gzqgEt0_o708aQ',
+                  '1AQhRXA6GhMp6FjpS4T8lQ',
+                  '1CTNhKEqGbmG5r-sBbDoLg',
+                  '1Cm3f1ys5_sBRUBTFECnww',
+                  '1GnJDrpp-jyDRCptavD9RQ',
+                  '1IegWNVYw_8QHKFhmjPlvw',
+                  '1KLmUmiguE0qiIfqhwm8Xw',
+                  '1LhpU1alopR_l-bWVQPkUA',
+                  '1O-cOXmPlowTmoGgMi2Vtg',
+                  '1OgRJcJ2tsfkZn5tCjhNKg',
+                  '1UNorskttXSWuEcgzKzXcA',
+                  '1UaLl6qTKbcAfFRR9q2Mhg',
+                  '1YnUIpvSy4bODX8fxXFyYQ',
+                  '1YsQluc6cnNtaFfFyI4XLA',
+                  '1ZWTYexgZsSLm85yTZQzWQ',
+                  '1_xAUZNNFEMmm9fNj6H-Ww',
+                  '1iE5POC7JT8fKs2tZ-CJnA',
+                  '1iQpAAWmGp6yJCNr-7DMRQ',
+                  '1kewLmgL2YTdF3ihUVDzQQ',
+                  '1lOOo2L-Q9jvJAs-nN9dlQ',
+                  '1lUfhypIZhfP8UmZBh6bxg',
+                  '1mHwt5rp9aKqUcFsNTBVVQ',
+                  '1myzUtTeh1D9HaJzRMu9Zw',
+                  '1pwtjoNAoi7kIXqf1Z-AXg',
+                  '1qBemRZEO3XMlpyKZavTvg',
+                  ... 2099 more items
+                ]
+              }
+            }
+          },
+          queryHash: '2CD6A97E',
+          planCacheKey: '79F8AE81',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              inputStage: {
+                stage: 'IXSCAN',
+                keyPattern: {
+                  business_id: 1
+                },
+                indexName: 'business_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  business_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  business_id: [
+                    '[MinKey, "--sXnWH9Xm6_NvIjyuA99w")',
+                    '("--sXnWH9Xm6_NvIjyuA99w", "-1yftDfgOUlxe_IACM5PFg")',
+                    '("-1yftDfgOUlxe_IACM5PFg", "-4HMjEGQgduIMMTe0WPQBA")',
+                    '("-4HMjEGQgduIMMTe0WPQBA", "-4dYswJy7SPcbcERvitmIg")',
+                    '("-4dYswJy7SPcbcERvitmIg", "-5Rah4ZvWsDu4oilUZxhtw")',
+                    '("-5Rah4ZvWsDu4oilUZxhtw", "-5jh7Rgm_jP2SclLrZG80A")',
+                    '("-5jh7Rgm_jP2SclLrZG80A", "-5uzjjKUA-kt81j605d5Jg")',
+                    '("-5uzjjKUA-kt81j605d5Jg", "-6MEKOmFu6jckT3pruSxHg")',
+                    '("-6MEKOmFu6jckT3pruSxHg", "-AanHawaDlzWHQjrqRRWig")',
+                    '("-AanHawaDlzWHQjrqRRWig", "-AbzJTLQdbdQrhRzQLgsKA")',
+                    '("-AbzJTLQdbdQrhRzQLgsKA", "-CGp5Ix4u_Mt45nrWvHSaQ")',
+                    '("-CGp5Ix4u_Mt45nrWvHSaQ", "-JStjL-8mRZq4ov4uI1FaQ")',
+                    '("-JStjL-8mRZq4ov4uI1FaQ", "-KWel73upKHxstRCr9JGLw")',
+                    '("-KWel73upKHxstRCr9JGLw", "-KZwzYMLpSMZw7JOY1h5yA")',
+                    '("-KZwzYMLpSMZw7JOY1h5yA", "-Mig1TcxvFWREy-pfx7rZQ")',
+                    '("-Mig1TcxvFWREy-pfx7rZQ", "-Oc3gtgcrsApbBPCUoA4rg")',
+                    '("-Oc3gtgcrsApbBPCUoA4rg", "-QG6KSRQKTQ80--wqrnLTg")',
+                    '("-QG6KSRQKTQ80--wqrnLTg", "-QI8Qi8XWH3D8y8ethnajA")',
+                    '("-QI8Qi8XWH3D8y8ethnajA", "-R3PWE4ycIc-xElcPqqetw")',
+                    '("-R3PWE4ycIc-xElcPqqetw", "-SgBPXjleGQqruChlFE03w")',
+                    '("-SgBPXjleGQqruChlFE03w", "-UJ7ZTb3zfmqZogmy3fnGg")',
+                    '("-UJ7ZTb3zfmqZogmy3fnGg", "-V0vIgo6196MDn_x3ZaYmA")',
+                    '("-V0vIgo6196MDn_x3ZaYmA", "-Y3htUtPT7AMBgjx9R9PhQ")',
+                    '("-Y3htUtPT7AMBgjx9R9PhQ", "-aUw9tAKRs_Lrw47U-YSBw")',
+                    '("-aUw9tAKRs_Lrw47U-YSBw", "-cE9GrThz6HHn2zdpoqY_w")',
+                    '("-cE9GrThz6HHn2zdpoqY_w", "-esrlwUKa3cQWouOr5y9Rw")',
+                    '("-esrlwUKa3cQWouOr5y9Rw", "-qWhas31o61V6vC6yo6NWw")',
+                    '("-qWhas31o61V6vC6yo6NWw", "-qkHmhgvNbn9N29nN41IYw")',
+                    '("-qkHmhgvNbn9N29nN41IYw", "-qk__vjJxfJrCWn3UaMv_Q")',
+                    '("-qk__vjJxfJrCWn3UaMv_Q", "-rN0k6vC7pJS0p4b6a1xRA")',
+                    '("-rN0k6vC7pJS0p4b6a1xRA", "-wpjPXundFyZCm9khW2wLg")',
+                    '("-wpjPXundFyZCm9khW2wLg", "-xV7ESuXJglzA_kdd8a7Mw")',
+                    '("-xV7ESuXJglzA_kdd8a7Mw", "0-7N3z_cb3Z1xMGDrbez6w")',
+                    '("0-7N3z_cb3Z1xMGDrbez6w", "00szsg8vQy6yX5f-m9sI4A")',
+                    '("00szsg8vQy6yX5f-m9sI4A", "02PoEXj8TR7FQZvUV48o8w")',
+                    '("02PoEXj8TR7FQZvUV48o8w", "04UD14gamNjLY0IDYVhHJg")',
+                    '("04UD14gamNjLY0IDYVhHJg", "09yzPKqhvm_kJo6S5vsS3w")',
+                    '("09yzPKqhvm_kJo6S5vsS3w", "0FzbiQyBnFnH1OkMol_mgQ")',
+                    '("0FzbiQyBnFnH1OkMol_mgQ", "0HpHVZFlEH5csxSBRVSmsA")',
+                    '("0HpHVZFlEH5csxSBRVSmsA", "0IOTWdSW74tAh0SkEVIIiA")',
+                    '("0IOTWdSW74tAh0SkEVIIiA", "0IYUdfag5M07C_darC8boA")',
+                    '("0IYUdfag5M07C_darC8boA", "0KEMPs7BD_WHI6zGpDcKjw")',
+                    '("0KEMPs7BD_WHI6zGpDcKjw", "0LuNIBiqt24Tv49aWc8AFA")',
+                    '("0LuNIBiqt24Tv49aWc8AFA", "0OtQaTauMzH0JM-NwJdXdw")',
+                    '("0OtQaTauMzH0JM-NwJdXdw", "0RO4HyAgoCOqbKqkspoGNg")',
+                    '("0RO4HyAgoCOqbKqkspoGNg", "0RcD7PpjWTMcN86NwzgBag")',
+                    '("0RcD7PpjWTMcN86NwzgBag", "0S3TvsmbCeOZ9UitnpRd1A")',
+                    '("0S3TvsmbCeOZ9UitnpRd1A", "0SWqECZ39P2MlmeXbKnUjg")',
+                    '("0SWqECZ39P2MlmeXbKnUjg", "0S_4jegr9uR8UqdeMJdd2A")',
+                    '("0S_4jegr9uR8UqdeMJdd2A", "0TZhSVLu-HSNSVSQANvx1Q")',
+                    '("0TZhSVLu-HSNSVSQANvx1Q", "0UCh75Aoz8YMe9nrnjawwg")',
+                    '("0UCh75Aoz8YMe9nrnjawwg", "0XmjnnJu-offU4n-f9apLQ")',
+                    '("0XmjnnJu-offU4n-f9apLQ", "0b7SbKpbNmmoEFCw9Bwwbg")',
+                    '("0b7SbKpbNmmoEFCw9Bwwbg", "0dWrbjWlPDBq3WpDq_bCxQ")',
+                    '("0dWrbjWlPDBq3WpDq_bCxQ", "0eQ89dmtqdPgLDD8jMUZ4A")',
+                    '("0eQ89dmtqdPgLDD8jMUZ4A", "0i1BtBKOqL50E80CxuuFzA")',
+                    '("0i1BtBKOqL50E80CxuuFzA", "0i65fgMamX8UtWmi8KzzGg")',
+                    '("0i65fgMamX8UtWmi8KzzGg", "0jQPPEppYjGQ2higy6JvCg")',
+                    '("0jQPPEppYjGQ2higy6JvCg", "0j_9DoKPu1FEYE_4kcp3uQ")',
+                    '("0j_9DoKPu1FEYE_4kcp3uQ", "0k8DG6BPaVKCRfnWJZhLUA")',
+                    '("0k8DG6BPaVKCRfnWJZhLUA", "0kLivwqFCIAb2V7Vhndpow")',
+                    '("0kLivwqFCIAb2V7Vhndpow", "0l_njS4wGMadAk1b4nZRUA")',
+                    '("0l_njS4wGMadAk1b4nZRUA", "0n6alVslpokrrvdrlp871A")',
+                    '("0n6alVslpokrrvdrlp871A", "0rmGHYrR4GR_HTG1rLLerA")',
+                    '("0rmGHYrR4GR_HTG1rLLerA", "0sEQcUD5WEdwBJBXavafHA")',
+                    '("0sEQcUD5WEdwBJBXavafHA", "0swbH3HFkIX9SvMkRwCMSA")',
+                    '("0swbH3HFkIX9SvMkRwCMSA", "0v5gedzRunqlbgtj3u1QCQ")',
+                    '("0v5gedzRunqlbgtj3u1QCQ", "0yN1rxCrEKqQIUk-nqyWVw")',
+                    '("0yN1rxCrEKqQIUk-nqyWVw", "1-KxvPja7GvoCYVIgxgAOw")',
+                    '("1-KxvPja7GvoCYVIgxgAOw", "115Vnqj_18yog_PWIV0JzA")',
+                    '("115Vnqj_18yog_PWIV0JzA", "11uo3yawm_d1DWCCMpM1tw")',
+                    '("11uo3yawm_d1DWCCMpM1tw", "13HH552okR9DsjANReVeFQ")',
+                    '("13HH552okR9DsjANReVeFQ", "152JQDYumtZAFlTsmFAxaA")',
+                    '("152JQDYumtZAFlTsmFAxaA", "17MK8qagV374AuUA4sXuIA")',
+                    '("17MK8qagV374AuUA4sXuIA", "18790ccUVHejWqCmkoSJjA")',
+                    '("18790ccUVHejWqCmkoSJjA", "19l4qdS2gzqgEt0_o708aQ")',
+                    '("19l4qdS2gzqgEt0_o708aQ", "1AQhRXA6GhMp6FjpS4T8lQ")',
+                    '("1AQhRXA6GhMp6FjpS4T8lQ", "1CTNhKEqGbmG5r-sBbDoLg")',
+                    '("1CTNhKEqGbmG5r-sBbDoLg", "1Cm3f1ys5_sBRUBTFECnww")',
+                    '("1Cm3f1ys5_sBRUBTFECnww", "1GnJDrpp-jyDRCptavD9RQ")',
+                    '("1GnJDrpp-jyDRCptavD9RQ", "1IegWNVYw_8QHKFhmjPlvw")',
+                    '("1IegWNVYw_8QHKFhmjPlvw", "1KLmUmiguE0qiIfqhwm8Xw")',
+                    '("1KLmUmiguE0qiIfqhwm8Xw", "1LhpU1alopR_l-bWVQPkUA")',
+                    '("1LhpU1alopR_l-bWVQPkUA", "1O-cOXmPlowTmoGgMi2Vtg")',
+                    '("1O-cOXmPlowTmoGgMi2Vtg", "1OgRJcJ2tsfkZn5tCjhNKg")',
+                    '("1OgRJcJ2tsfkZn5tCjhNKg", "1UNorskttXSWuEcgzKzXcA")',
+                    '("1UNorskttXSWuEcgzKzXcA", "1UaLl6qTKbcAfFRR9q2Mhg")',
+                    '("1UaLl6qTKbcAfFRR9q2Mhg", "1YnUIpvSy4bODX8fxXFyYQ")',
+                    '("1YnUIpvSy4bODX8fxXFyYQ", "1YsQluc6cnNtaFfFyI4XLA")',
+                    '("1YsQluc6cnNtaFfFyI4XLA", "1ZWTYexgZsSLm85yTZQzWQ")',
+                    '("1ZWTYexgZsSLm85yTZQzWQ", "1_xAUZNNFEMmm9fNj6H-Ww")',
+                    '("1_xAUZNNFEMmm9fNj6H-Ww", "1iE5POC7JT8fKs2tZ-CJnA")',
+                    '("1iE5POC7JT8fKs2tZ-CJnA", "1iQpAAWmGp6yJCNr-7DMRQ")',
+                    '("1iQpAAWmGp6yJCNr-7DMRQ", "1kewLmgL2YTdF3ihUVDzQQ")',
+                    '("1kewLmgL2YTdF3ihUVDzQQ", "1lOOo2L-Q9jvJAs-nN9dlQ")',
+                    '("1lOOo2L-Q9jvJAs-nN9dlQ", "1lUfhypIZhfP8UmZBh6bxg")',
+                    '("1lUfhypIZhfP8UmZBh6bxg", "1mHwt5rp9aKqUcFsNTBVVQ")',
+                    '("1mHwt5rp9aKqUcFsNTBVVQ", "1myzUtTeh1D9HaJzRMu9Zw")',
+                    '("1myzUtTeh1D9HaJzRMu9Zw", "1pwtjoNAoi7kIXqf1Z-AXg")',
+                    '("1pwtjoNAoi7kIXqf1Z-AXg", "1qBemRZEO3XMlpyKZavTvg")',
+                    ... 2100 more items
+                  ]
+                }
+              }
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 148147,
+          executionTimeMillis: 892063,
+          totalKeysExamined: 150346,
+          totalDocsExamined: 148147,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 148147,
+            executionTimeMillisEstimate: 282,
+            works: 150347,
+            advanced: 148147,
+            needTime: 2199,
+            needYield: 0,
+            saveState: 161,
+            restoreState: 161,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'FETCH',
+              nReturned: 148147,
+              executionTimeMillisEstimate: 229,
+              works: 150347,
+              advanced: 148147,
+              needTime: 2199,
+              needYield: 0,
+              saveState: 161,
+              restoreState: 161,
+              isEOF: 1,
+              docsExamined: 148147,
+              alreadyHasObj: 0,
+              inputStage: {
+                stage: 'IXSCAN',
+                nReturned: 148147,
+                executionTimeMillisEstimate: 67,
+                works: 150347,
+                advanced: 148147,
+                needTime: 2199,
+                needYield: 0,
+                saveState: 161,
+                restoreState: 161,
+                isEOF: 1,
+                keyPattern: {
+                  business_id: 1
+                },
+                indexName: 'business_id_1',
+                isMultiKey: false,
+                multiKeyPaths: {
+                  business_id: []
+                },
+                isUnique: false,
+                isSparse: false,
+                isPartial: false,
+                indexVersion: 2,
+                direction: 'forward',
+                indexBounds: {
+                  business_id: [
+                    '[MinKey, "--sXnWH9Xm6_NvIjyuA99w")',
+                    '("--sXnWH9Xm6_NvIjyuA99w", "-1yftDfgOUlxe_IACM5PFg")',
+                    '("-1yftDfgOUlxe_IACM5PFg", "-4HMjEGQgduIMMTe0WPQBA")',
+                    '("-4HMjEGQgduIMMTe0WPQBA", "-4dYswJy7SPcbcERvitmIg")',
+                    '("-4dYswJy7SPcbcERvitmIg", "-5Rah4ZvWsDu4oilUZxhtw")',
+                    '("-5Rah4ZvWsDu4oilUZxhtw", "-5jh7Rgm_jP2SclLrZG80A")',
+                    '("-5jh7Rgm_jP2SclLrZG80A", "-5uzjjKUA-kt81j605d5Jg")',
+                    '("-5uzjjKUA-kt81j605d5Jg", "-6MEKOmFu6jckT3pruSxHg")',
+                    '("-6MEKOmFu6jckT3pruSxHg", "-AanHawaDlzWHQjrqRRWig")',
+                    '("-AanHawaDlzWHQjrqRRWig", "-AbzJTLQdbdQrhRzQLgsKA")',
+                    '("-AbzJTLQdbdQrhRzQLgsKA", "-CGp5Ix4u_Mt45nrWvHSaQ")',
+                    '("-CGp5Ix4u_Mt45nrWvHSaQ", "-JStjL-8mRZq4ov4uI1FaQ")',
+                    '("-JStjL-8mRZq4ov4uI1FaQ", "-KWel73upKHxstRCr9JGLw")',
+                    '("-KWel73upKHxstRCr9JGLw", "-KZwzYMLpSMZw7JOY1h5yA")',
+                    '("-KZwzYMLpSMZw7JOY1h5yA", "-Mig1TcxvFWREy-pfx7rZQ")',
+                    '("-Mig1TcxvFWREy-pfx7rZQ", "-Oc3gtgcrsApbBPCUoA4rg")',
+                    '("-Oc3gtgcrsApbBPCUoA4rg", "-QG6KSRQKTQ80--wqrnLTg")',
+                    '("-QG6KSRQKTQ80--wqrnLTg", "-QI8Qi8XWH3D8y8ethnajA")',
+                    '("-QI8Qi8XWH3D8y8ethnajA", "-R3PWE4ycIc-xElcPqqetw")',
+                    '("-R3PWE4ycIc-xElcPqqetw", "-SgBPXjleGQqruChlFE03w")',
+                    '("-SgBPXjleGQqruChlFE03w", "-UJ7ZTb3zfmqZogmy3fnGg")',
+                    '("-UJ7ZTb3zfmqZogmy3fnGg", "-V0vIgo6196MDn_x3ZaYmA")',
+                    '("-V0vIgo6196MDn_x3ZaYmA", "-Y3htUtPT7AMBgjx9R9PhQ")',
+                    '("-Y3htUtPT7AMBgjx9R9PhQ", "-aUw9tAKRs_Lrw47U-YSBw")',
+                    '("-aUw9tAKRs_Lrw47U-YSBw", "-cE9GrThz6HHn2zdpoqY_w")',
+                    '("-cE9GrThz6HHn2zdpoqY_w", "-esrlwUKa3cQWouOr5y9Rw")',
+                    '("-esrlwUKa3cQWouOr5y9Rw", "-qWhas31o61V6vC6yo6NWw")',
+                    '("-qWhas31o61V6vC6yo6NWw", "-qkHmhgvNbn9N29nN41IYw")',
+                    '("-qkHmhgvNbn9N29nN41IYw", "-qk__vjJxfJrCWn3UaMv_Q")',
+                    '("-qk__vjJxfJrCWn3UaMv_Q", "-rN0k6vC7pJS0p4b6a1xRA")',
+                    '("-rN0k6vC7pJS0p4b6a1xRA", "-wpjPXundFyZCm9khW2wLg")',
+                    '("-wpjPXundFyZCm9khW2wLg", "-xV7ESuXJglzA_kdd8a7Mw")',
+                    '("-xV7ESuXJglzA_kdd8a7Mw", "0-7N3z_cb3Z1xMGDrbez6w")',
+                    '("0-7N3z_cb3Z1xMGDrbez6w", "00szsg8vQy6yX5f-m9sI4A")',
+                    '("00szsg8vQy6yX5f-m9sI4A", "02PoEXj8TR7FQZvUV48o8w")',
+                    '("02PoEXj8TR7FQZvUV48o8w", "04UD14gamNjLY0IDYVhHJg")',
+                    '("04UD14gamNjLY0IDYVhHJg", "09yzPKqhvm_kJo6S5vsS3w")',
+                    '("09yzPKqhvm_kJo6S5vsS3w", "0FzbiQyBnFnH1OkMol_mgQ")',
+                    '("0FzbiQyBnFnH1OkMol_mgQ", "0HpHVZFlEH5csxSBRVSmsA")',
+                    '("0HpHVZFlEH5csxSBRVSmsA", "0IOTWdSW74tAh0SkEVIIiA")',
+                    '("0IOTWdSW74tAh0SkEVIIiA", "0IYUdfag5M07C_darC8boA")',
+                    '("0IYUdfag5M07C_darC8boA", "0KEMPs7BD_WHI6zGpDcKjw")',
+                    '("0KEMPs7BD_WHI6zGpDcKjw", "0LuNIBiqt24Tv49aWc8AFA")',
+                    '("0LuNIBiqt24Tv49aWc8AFA", "0OtQaTauMzH0JM-NwJdXdw")',
+                    '("0OtQaTauMzH0JM-NwJdXdw", "0RO4HyAgoCOqbKqkspoGNg")',
+                    '("0RO4HyAgoCOqbKqkspoGNg", "0RcD7PpjWTMcN86NwzgBag")',
+                    '("0RcD7PpjWTMcN86NwzgBag", "0S3TvsmbCeOZ9UitnpRd1A")',
+                    '("0S3TvsmbCeOZ9UitnpRd1A", "0SWqECZ39P2MlmeXbKnUjg")',
+                    '("0SWqECZ39P2MlmeXbKnUjg", "0S_4jegr9uR8UqdeMJdd2A")',
+                    '("0S_4jegr9uR8UqdeMJdd2A", "0TZhSVLu-HSNSVSQANvx1Q")',
+                    '("0TZhSVLu-HSNSVSQANvx1Q", "0UCh75Aoz8YMe9nrnjawwg")',
+                    '("0UCh75Aoz8YMe9nrnjawwg", "0XmjnnJu-offU4n-f9apLQ")',
+                    '("0XmjnnJu-offU4n-f9apLQ", "0b7SbKpbNmmoEFCw9Bwwbg")',
+                    '("0b7SbKpbNmmoEFCw9Bwwbg", "0dWrbjWlPDBq3WpDq_bCxQ")',
+                    '("0dWrbjWlPDBq3WpDq_bCxQ", "0eQ89dmtqdPgLDD8jMUZ4A")',
+                    '("0eQ89dmtqdPgLDD8jMUZ4A", "0i1BtBKOqL50E80CxuuFzA")',
+                    '("0i1BtBKOqL50E80CxuuFzA", "0i65fgMamX8UtWmi8KzzGg")',
+                    '("0i65fgMamX8UtWmi8KzzGg", "0jQPPEppYjGQ2higy6JvCg")',
+                    '("0jQPPEppYjGQ2higy6JvCg", "0j_9DoKPu1FEYE_4kcp3uQ")',
+                    '("0j_9DoKPu1FEYE_4kcp3uQ", "0k8DG6BPaVKCRfnWJZhLUA")',
+                    '("0k8DG6BPaVKCRfnWJZhLUA", "0kLivwqFCIAb2V7Vhndpow")',
+                    '("0kLivwqFCIAb2V7Vhndpow", "0l_njS4wGMadAk1b4nZRUA")',
+                    '("0l_njS4wGMadAk1b4nZRUA", "0n6alVslpokrrvdrlp871A")',
+                    '("0n6alVslpokrrvdrlp871A", "0rmGHYrR4GR_HTG1rLLerA")',
+                    '("0rmGHYrR4GR_HTG1rLLerA", "0sEQcUD5WEdwBJBXavafHA")',
+                    '("0sEQcUD5WEdwBJBXavafHA", "0swbH3HFkIX9SvMkRwCMSA")',
+                    '("0swbH3HFkIX9SvMkRwCMSA", "0v5gedzRunqlbgtj3u1QCQ")',
+                    '("0v5gedzRunqlbgtj3u1QCQ", "0yN1rxCrEKqQIUk-nqyWVw")',
+                    '("0yN1rxCrEKqQIUk-nqyWVw", "1-KxvPja7GvoCYVIgxgAOw")',
+                    '("1-KxvPja7GvoCYVIgxgAOw", "115Vnqj_18yog_PWIV0JzA")',
+                    '("115Vnqj_18yog_PWIV0JzA", "11uo3yawm_d1DWCCMpM1tw")',
+                    '("11uo3yawm_d1DWCCMpM1tw", "13HH552okR9DsjANReVeFQ")',
+                    '("13HH552okR9DsjANReVeFQ", "152JQDYumtZAFlTsmFAxaA")',
+                    '("152JQDYumtZAFlTsmFAxaA", "17MK8qagV374AuUA4sXuIA")',
+                    '("17MK8qagV374AuUA4sXuIA", "18790ccUVHejWqCmkoSJjA")',
+                    '("18790ccUVHejWqCmkoSJjA", "19l4qdS2gzqgEt0_o708aQ")',
+                    '("19l4qdS2gzqgEt0_o708aQ", "1AQhRXA6GhMp6FjpS4T8lQ")',
+                    '("1AQhRXA6GhMp6FjpS4T8lQ", "1CTNhKEqGbmG5r-sBbDoLg")',
+                    '("1CTNhKEqGbmG5r-sBbDoLg", "1Cm3f1ys5_sBRUBTFECnww")',
+                    '("1Cm3f1ys5_sBRUBTFECnww", "1GnJDrpp-jyDRCptavD9RQ")',
+                    '("1GnJDrpp-jyDRCptavD9RQ", "1IegWNVYw_8QHKFhmjPlvw")',
+                    '("1IegWNVYw_8QHKFhmjPlvw", "1KLmUmiguE0qiIfqhwm8Xw")',
+                    '("1KLmUmiguE0qiIfqhwm8Xw", "1LhpU1alopR_l-bWVQPkUA")',
+                    '("1LhpU1alopR_l-bWVQPkUA", "1O-cOXmPlowTmoGgMi2Vtg")',
+                    '("1O-cOXmPlowTmoGgMi2Vtg", "1OgRJcJ2tsfkZn5tCjhNKg")',
+                    '("1OgRJcJ2tsfkZn5tCjhNKg", "1UNorskttXSWuEcgzKzXcA")',
+                    '("1UNorskttXSWuEcgzKzXcA", "1UaLl6qTKbcAfFRR9q2Mhg")',
+                    '("1UaLl6qTKbcAfFRR9q2Mhg", "1YnUIpvSy4bODX8fxXFyYQ")',
+                    '("1YnUIpvSy4bODX8fxXFyYQ", "1YsQluc6cnNtaFfFyI4XLA")',
+                    '("1YsQluc6cnNtaFfFyI4XLA", "1ZWTYexgZsSLm85yTZQzWQ")',
+                    '("1ZWTYexgZsSLm85yTZQzWQ", "1_xAUZNNFEMmm9fNj6H-Ww")',
+                    '("1_xAUZNNFEMmm9fNj6H-Ww", "1iE5POC7JT8fKs2tZ-CJnA")',
+                    '("1iE5POC7JT8fKs2tZ-CJnA", "1iQpAAWmGp6yJCNr-7DMRQ")',
+                    '("1iQpAAWmGp6yJCNr-7DMRQ", "1kewLmgL2YTdF3ihUVDzQQ")',
+                    '("1kewLmgL2YTdF3ihUVDzQQ", "1lOOo2L-Q9jvJAs-nN9dlQ")',
+                    '("1lOOo2L-Q9jvJAs-nN9dlQ", "1lUfhypIZhfP8UmZBh6bxg")',
+                    '("1lUfhypIZhfP8UmZBh6bxg", "1mHwt5rp9aKqUcFsNTBVVQ")',
+                    '("1mHwt5rp9aKqUcFsNTBVVQ", "1myzUtTeh1D9HaJzRMu9Zw")',
+                    '("1myzUtTeh1D9HaJzRMu9Zw", "1pwtjoNAoi7kIXqf1Z-AXg")',
+                    '("1pwtjoNAoi7kIXqf1Z-AXg", "1qBemRZEO3XMlpyKZavTvg")',
+                    ... 2100 more items
+                  ]
+                },
+                keysExamined: 150346,
+                seeks: 2200,
+                dupsTested: 0,
+                dupsDropped: 0
+              }
+            }
+          }
+        }
+      },
+      nReturned: 148147,
+      executionTimeMillisEstimate: 738
+    },
+    {
+      '$lookup': {
+        from: 'user_reviewed_business',
+        as: 'matched_businesses',
+        let: {
+          city: '$city',
+          categories: '$categories'
+        },
+        pipeline: [
+          {
+            '$match': {
+              '$expr': {
+                '$and': [
+                  {
+                    '$eq': [
+                      '$city',
+                      '$$city'
+                    ]
+                  },
+                  {
+                    '$regexMatch': {
+                      input: '$$categories',
+                      regex: {
+                        '$trim': {
+                          input: '$category'
+                        }
+                      },
+                      options: 'i'
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        unwinding: {
+          preserveNullAndEmptyArrays: false
+        }
+      },
+      totalDocsExamined: 1355257904,
+      totalKeysExamined: 0,
+      collectionScans: 148148,
+      indexesUsed: [],
+      nReturned: 4856675,
+      executionTimeMillisEstimate: 891521
+    },
+    {
+      '$group': {
+        _id: {
+          business_id: '$business_id',
+          city: '$city',
+          categories: '$categories'
+        },
+        match_count: {
+          '$sum': {
+            '$const': 1
+          }
+        }
+      },
+      maxAccumulatorMemoryUsageBytes: {
+        match_count: 2648064
+      },
+      totalOutputDataSizeBytes: 17515399,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      numBytesSpilledEstimate: 0,
+      spilledRecords: 0,
+      nReturned: 27584,
+      executionTimeMillisEstimate: 891958
+    },
+    {
+      '$project': {
+        match_count: true,
+        business_id: '$_id.business_id',
+        city: '$_id.city',
+        categories: '$_id.categories',
+        _id: false
+      },
+      nReturned: 27584,
+      executionTimeMillisEstimate: 891966
+    },
+    {
+      '$out': {
+        coll: 'recommended_businesses',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 891966
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'business',
+    pipeline: [
+      {
+        '$lookup': {
+          from: 'user_reviewed_business',
+          let: {
+            city: '$city',
+            categories: '$categories'
+          },
+          pipeline: [
+            {
+              '$match': {
+                '$expr': {
+                  '$and': [
+                    {
+                      '$eq': [
+                        '$city',
+                        '$$city'
+                      ]
+                    },
+                    {
+                      '$regexMatch': {
+                        input: '$$categories',
+                        regex: {
+                          '$trim': {
+                            input: '$category'
+                          }
+                        },
+                        options: 'i'
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          as: 'matched_businesses'
+        }
+      },
+      {
+        '$match': {
+          business_id: {
+            '$nin': [
+              '--sXnWH9Xm6_NvIjyuA99w',
+              '-1yftDfgOUlxe_IACM5PFg',
+              '-4HMjEGQgduIMMTe0WPQBA',
+              '-4dYswJy7SPcbcERvitmIg',
+              '-5Rah4ZvWsDu4oilUZxhtw',
+              '-5jh7Rgm_jP2SclLrZG80A',
+              '-5uzjjKUA-kt81j605d5Jg',
+              '-6MEKOmFu6jckT3pruSxHg',
+              '-AanHawaDlzWHQjrqRRWig',
+              '-AbzJTLQdbdQrhRzQLgsKA',
+              '-CGp5Ix4u_Mt45nrWvHSaQ',
+              '-JStjL-8mRZq4ov4uI1FaQ',
+              '-KWel73upKHxstRCr9JGLw',
+              '-KZwzYMLpSMZw7JOY1h5yA',
+              '-Mig1TcxvFWREy-pfx7rZQ',
+              '-Oc3gtgcrsApbBPCUoA4rg',
+              '-QG6KSRQKTQ80--wqrnLTg',
+              '-QI8Qi8XWH3D8y8ethnajA',
+              '-R3PWE4ycIc-xElcPqqetw',
+              '-SgBPXjleGQqruChlFE03w',
+              '-UJ7ZTb3zfmqZogmy3fnGg',
+              '-V0vIgo6196MDn_x3ZaYmA',
+              '-Y3htUtPT7AMBgjx9R9PhQ',
+              '-aUw9tAKRs_Lrw47U-YSBw',
+              '-cE9GrThz6HHn2zdpoqY_w',
+              '-esrlwUKa3cQWouOr5y9Rw',
+              '-qWhas31o61V6vC6yo6NWw',
+              '-qkHmhgvNbn9N29nN41IYw',
+              '-qk__vjJxfJrCWn3UaMv_Q',
+              '-rN0k6vC7pJS0p4b6a1xRA',
+              '-wpjPXundFyZCm9khW2wLg',
+              '-xV7ESuXJglzA_kdd8a7Mw',
+              '0-7N3z_cb3Z1xMGDrbez6w',
+              '00szsg8vQy6yX5f-m9sI4A',
+              '02PoEXj8TR7FQZvUV48o8w',
+              '04UD14gamNjLY0IDYVhHJg',
+              '09yzPKqhvm_kJo6S5vsS3w',
+              '0FzbiQyBnFnH1OkMol_mgQ',
+              '0HpHVZFlEH5csxSBRVSmsA',
+              '0IOTWdSW74tAh0SkEVIIiA',
+              '0IYUdfag5M07C_darC8boA',
+              '0KEMPs7BD_WHI6zGpDcKjw',
+              '0LuNIBiqt24Tv49aWc8AFA',
+              '0OtQaTauMzH0JM-NwJdXdw',
+              '0RO4HyAgoCOqbKqkspoGNg',
+              '0RcD7PpjWTMcN86NwzgBag',
+              '0S3TvsmbCeOZ9UitnpRd1A',
+              '0SWqECZ39P2MlmeXbKnUjg',
+              '0S_4jegr9uR8UqdeMJdd2A',
+              '0TZhSVLu-HSNSVSQANvx1Q',
+              '0UCh75Aoz8YMe9nrnjawwg',
+              '0XmjnnJu-offU4n-f9apLQ',
+              '0b7SbKpbNmmoEFCw9Bwwbg',
+              '0dWrbjWlPDBq3WpDq_bCxQ',
+              '0eQ89dmtqdPgLDD8jMUZ4A',
+              '0i1BtBKOqL50E80CxuuFzA',
+              '0i65fgMamX8UtWmi8KzzGg',
+              '0jQPPEppYjGQ2higy6JvCg',
+              '0j_9DoKPu1FEYE_4kcp3uQ',
+              '0k8DG6BPaVKCRfnWJZhLUA',
+              '0kLivwqFCIAb2V7Vhndpow',
+              '0l_njS4wGMadAk1b4nZRUA',
+              '0n6alVslpokrrvdrlp871A',
+              '0rmGHYrR4GR_HTG1rLLerA',
+              '0sEQcUD5WEdwBJBXavafHA',
+              '0swbH3HFkIX9SvMkRwCMSA',
+              '0v5gedzRunqlbgtj3u1QCQ',
+              '0yN1rxCrEKqQIUk-nqyWVw',
+              '1-KxvPja7GvoCYVIgxgAOw',
+              '115Vnqj_18yog_PWIV0JzA',
+              '11uo3yawm_d1DWCCMpM1tw',
+              '13HH552okR9DsjANReVeFQ',
+              '152JQDYumtZAFlTsmFAxaA',
+              '17MK8qagV374AuUA4sXuIA',
+              '18790ccUVHejWqCmkoSJjA',
+              '19l4qdS2gzqgEt0_o708aQ',
+              '1AQhRXA6GhMp6FjpS4T8lQ',
+              '1CTNhKEqGbmG5r-sBbDoLg',
+              '1Cm3f1ys5_sBRUBTFECnww',
+              '1GnJDrpp-jyDRCptavD9RQ',
+              '1IegWNVYw_8QHKFhmjPlvw',
+              '1KLmUmiguE0qiIfqhwm8Xw',
+              '1LhpU1alopR_l-bWVQPkUA',
+              '1O-cOXmPlowTmoGgMi2Vtg',
+              '1OgRJcJ2tsfkZn5tCjhNKg',
+              '1UNorskttXSWuEcgzKzXcA',
+              '1UaLl6qTKbcAfFRR9q2Mhg',
+              '1YnUIpvSy4bODX8fxXFyYQ',
+              '1YsQluc6cnNtaFfFyI4XLA',
+              '1ZWTYexgZsSLm85yTZQzWQ',
+              '1_xAUZNNFEMmm9fNj6H-Ww',
+              '1iE5POC7JT8fKs2tZ-CJnA',
+              '1iQpAAWmGp6yJCNr-7DMRQ',
+              '1kewLmgL2YTdF3ihUVDzQQ',
+              '1lOOo2L-Q9jvJAs-nN9dlQ',
+              '1lUfhypIZhfP8UmZBh6bxg',
+              '1mHwt5rp9aKqUcFsNTBVVQ',
+              '1myzUtTeh1D9HaJzRMu9Zw',
+              '1pwtjoNAoi7kIXqf1Z-AXg',
+              '1qBemRZEO3XMlpyKZavTvg',
+              ... 2099 more items
+            ]
+          }
+        }
+      },
+      {
+        '$unwind': '$matched_businesses'
+      },
+      {
+        '$group': {
+          _id: {
+            business_id: '$business_id',
+            city: '$city',
+            categories: '$categories'
+          },
+          match_count: {
+            '$sum': 1
+          }
+        }
+      },
+      {
+        '$project': {
+          _id: 0,
+          business_id: '$_id.business_id',
+          city: '$_id.city',
+          categories: '$_id.categories',
+          match_count: 1
+        }
+      },
+      {
+        '$out': 'recommended_businesses'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

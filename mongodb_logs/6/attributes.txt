@@ -1,0 +1,562 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.review',
+          indexFilterSet: false,
+          parsedQuery: {},
+          queryHash: '0A400AD3',
+          planCacheKey: '0A400AD3',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              data: 1,
+              review_id: 1,
+              stars: 1,
+              text: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              direction: 'forward'
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 6990280,
+          executionTimeMillis: 669312,
+          totalKeysExamined: 0,
+          totalDocsExamined: 6990280,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 6990280,
+            executionTimeMillisEstimate: 93072,
+            works: 6990281,
+            advanced: 6990280,
+            needTime: 0,
+            needYield: 0,
+            saveState: 10670,
+            restoreState: 10670,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              data: 1,
+              review_id: 1,
+              stars: 1,
+              text: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              nReturned: 6990280,
+              executionTimeMillisEstimate: 88896,
+              works: 6990281,
+              advanced: 6990280,
+              needTime: 0,
+              needYield: 0,
+              saveState: 10670,
+              restoreState: 10670,
+              isEOF: 1,
+              direction: 'forward',
+              docsExamined: 6990280
+            }
+          }
+        }
+      },
+      nReturned: 6990280,
+      executionTimeMillisEstimate: 123070
+    },
+    {
+      '$addFields': {
+        matchedAttributes: {
+          '$filter': {
+            input: {
+              '$const': [
+                {
+                  attribute_key: 'AcceptsInsurance',
+                  keywords: [
+                    'insurance'
+                  ]
+                },
+                {
+                  attribute_key: 'BikeParking',
+                  keywords: [
+                    'bike',
+                    'bicycle'
+                  ]
+                },
+                {
+                  attribute_key: 'BusinessAcceptsBitcoin',
+                  keywords: [
+                    'bitcoin',
+                    'crypto'
+                  ]
+                },
+                {
+                  attribute_key: 'BusinessAcceptsCreditCards',
+                  keywords: [
+                    'credit'
+                  ]
+                },
+                {
+                  attribute_key: 'ByAppointmentOnly',
+                  keywords: [
+                    'appointment'
+                  ]
+                },
+                {
+                  attribute_key: 'BYOB',
+                  keywords: [
+                    'byob'
+                  ]
+                },
+                {
+                  attribute_key: 'Caters',
+                  keywords: [
+                    'catering'
+                  ]
+                },
+                {
+                  attribute_key: 'CoatCheck',
+                  keywords: [
+                    'coat'
+                  ]
+                },
+                {
+                  attribute_key: 'Corkage',
+                  keywords: [
+                    'corkage'
+                  ]
+                },
+                {
+                  attribute_key: 'DogsAllowed',
+                  keywords: [
+                    'dogs'
+                  ]
+                },
+                {
+                  attribute_key: 'DriveThru',
+                  keywords: [
+                    'drive'
+                  ]
+                },
+                {
+                  attribute_key: 'GoodForDancing',
+                  keywords: [
+                    'dancing'
+                  ]
+                },
+                {
+                  attribute_key: 'GoodForKids',
+                  keywords: [
+                    'kids'
+                  ]
+                },
+                {
+                  attribute_key: 'HappyHour',
+                  keywords: [
+                    'happy'
+                  ]
+                },
+                {
+                  attribute_key: 'HasTV',
+                  keywords: [
+                    'tv'
+                  ]
+                },
+                {
+                  attribute_key: 'Open24Hours',
+                  keywords: [
+                    '24 hours',
+                    '24-hour'
+                  ]
+                },
+                {
+                  attribute_key: 'OutdoorSeating',
+                  keywords: [
+                    'outdoor'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsCounterService',
+                  keywords: [
+                    'counter'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsDelivery',
+                  keywords: [
+                    'delivery'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsGoodForGroups',
+                  keywords: [
+                    'groups'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsReservations',
+                  keywords: [
+                    'reservation'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsTableService',
+                  keywords: [
+                    'table'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsTakeOut',
+                  keywords: [
+                    'takeout'
+                  ]
+                },
+                {
+                  attribute_key: 'WheelchairAccessible',
+                  keywords: [
+                    'wheelchair'
+                  ]
+                }
+              ]
+            },
+            as: 'kw',
+            cond: {
+              '$anyElementTrue': [
+                {
+                  '$map': {
+                    input: '$$kw.keywords',
+                    as: 'keyword',
+                    in: {
+                      '$regexMatch': {
+                        input: '$text',
+                        regex: {
+                          '$concat': [
+                            {
+                              '$const': '\\b'
+                            },
+                            '$$keyword',
+                            {
+                              '$const': '\\b'
+                            }
+                          ]
+                        },
+                        options: {
+                          '$const': 'i'
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      nReturned: 6990280,
+      executionTimeMillisEstimate: 658832
+    },
+    {
+      '$unwind': {
+        path: '$matchedAttributes'
+      },
+      nReturned: 2154836,
+      executionTimeMillisEstimate: 661707
+    },
+    {
+      '$addFields': {
+        attribute_category: {
+          '$cond': [
+            {
+              '$gt': [
+                '$stars',
+                {
+                  '$const': 3
+                }
+              ]
+            },
+            {
+              '$const': 'featuredAttribute'
+            },
+            {
+              '$const': 'missingAttribute'
+            }
+          ]
+        }
+      },
+      nReturned: 2154836,
+      executionTimeMillisEstimate: 663847
+    },
+    {
+      '$project': {
+        review_id: true,
+        business_id: true,
+        data: {
+          attribute_key: '$matchedAttributes.attribute_key',
+          review_text: '$text',
+          stars: '$stars',
+          attribute_category: '$attribute_category'
+        },
+        _id: false
+      },
+      nReturned: 2154836,
+      executionTimeMillisEstimate: 668376
+    },
+    {
+      '$out': {
+        coll: 'business_attribute_review',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 669277
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'review',
+    pipeline: [
+      {
+        '$addFields': {
+          matchedAttributes: {
+            '$filter': {
+              input: [
+                {
+                  attribute_key: 'AcceptsInsurance',
+                  keywords: [
+                    'insurance'
+                  ]
+                },
+                {
+                  attribute_key: 'BikeParking',
+                  keywords: [
+                    'bike',
+                    'bicycle'
+                  ]
+                },
+                {
+                  attribute_key: 'BusinessAcceptsBitcoin',
+                  keywords: [
+                    'bitcoin',
+                    'crypto'
+                  ]
+                },
+                {
+                  attribute_key: 'BusinessAcceptsCreditCards',
+                  keywords: [
+                    'credit'
+                  ]
+                },
+                {
+                  attribute_key: 'ByAppointmentOnly',
+                  keywords: [
+                    'appointment'
+                  ]
+                },
+                {
+                  attribute_key: 'BYOB',
+                  keywords: [
+                    'byob'
+                  ]
+                },
+                {
+                  attribute_key: 'Caters',
+                  keywords: [
+                    'catering'
+                  ]
+                },
+                {
+                  attribute_key: 'CoatCheck',
+                  keywords: [
+                    'coat'
+                  ]
+                },
+                {
+                  attribute_key: 'Corkage',
+                  keywords: [
+                    'corkage'
+                  ]
+                },
+                {
+                  attribute_key: 'DogsAllowed',
+                  keywords: [
+                    'dogs'
+                  ]
+                },
+                {
+                  attribute_key: 'DriveThru',
+                  keywords: [
+                    'drive'
+                  ]
+                },
+                {
+                  attribute_key: 'GoodForDancing',
+                  keywords: [
+                    'dancing'
+                  ]
+                },
+                {
+                  attribute_key: 'GoodForKids',
+                  keywords: [
+                    'kids'
+                  ]
+                },
+                {
+                  attribute_key: 'HappyHour',
+                  keywords: [
+                    'happy'
+                  ]
+                },
+                {
+                  attribute_key: 'HasTV',
+                  keywords: [
+                    'tv'
+                  ]
+                },
+                {
+                  attribute_key: 'Open24Hours',
+                  keywords: [
+                    '24 hours',
+                    '24-hour'
+                  ]
+                },
+                {
+                  attribute_key: 'OutdoorSeating',
+                  keywords: [
+                    'outdoor'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsCounterService',
+                  keywords: [
+                    'counter'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsDelivery',
+                  keywords: [
+                    'delivery'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsGoodForGroups',
+                  keywords: [
+                    'groups'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsReservations',
+                  keywords: [
+                    'reservation'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsTableService',
+                  keywords: [
+                    'table'
+                  ]
+                },
+                {
+                  attribute_key: 'RestaurantsTakeOut',
+                  keywords: [
+                    'takeout'
+                  ]
+                },
+                {
+                  attribute_key: 'WheelchairAccessible',
+                  keywords: [
+                    'wheelchair'
+                  ]
+                }
+              ],
+              as: 'kw',
+              cond: {
+                '$anyElementTrue': {
+                  '$map': {
+                    input: '$$kw.keywords',
+                    as: 'keyword',
+                    in: {
+                      '$regexMatch': {
+                        input: '$text',
+                        regex: {
+                          '$concat': [
+                            '\\b',
+                            '$$keyword',
+                            '\\b'
+                          ]
+                        },
+                        options: 'i'
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        '$unwind': '$matchedAttributes'
+      },
+      {
+        '$addFields': {
+          attribute_category: {
+            '$cond': {
+              if: {
+                '$gt': [
+                  '$stars',
+                  3
+                ]
+              },
+              then: 'featuredAttribute',
+              else: 'missingAttribute'
+            }
+          }
+        }
+      },
+      {
+        '$project': {
+          _id: 0,
+          review_id: 1,
+          business_id: 1,
+          data: {
+            attribute_key: '$matchedAttributes.attribute_key',
+            review_text: '$text',
+            stars: '$stars',
+            attribute_category: '$attribute_category'
+          }
+        }
+      },
+      {
+        '$out': 'business_attribute_review'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

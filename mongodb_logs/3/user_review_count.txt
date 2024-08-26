@@ -1,0 +1,750 @@
+{
+  explainVersion: '2',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.review',
+          indexFilterSet: false,
+          parsedQuery: {
+            business_id: {
+              '$in': [
+                '--OS_I7dnABrXvRCCuWOGQ',
+                '--sXnWH9Xm6_NvIjyuA99w',
+                '-0M0b-XhtFagyLmsBtOe8w',
+                '-0PN_KFPtbnLQZEeb23XiA',
+                '-0TffRSXXIlBYVbb5AwfTg',
+                '-0eUa8TsXFFy0FCxHYmrjg',
+                '-0fvhILrC9UsQ6gLNpZlTQ',
+                '-0x-MbRbsi9YoPxB873qcw',
+                '-1B9pP_CrRBJYPICE5WbRA',
+                '-1DxQ1CxSc_JCxzKm9bglg',
+                '-1b2kNOowsPrPpBOK4lNkQ',
+                '-1yftDfgOUlxe_IACM5PFg',
+                '-1yt2mk60wWuQz9hPVKZCA',
+                '-2-ih3mE8KPyeKVIzpBfPQ',
+                '-2vZHP5Ej9FroxJo8qYJXA',
+                '-2xzyHY8uWnLmyQkkfwMuQ',
+                '-32hOCwsuKd04WO-HQyYFg',
+                '-3ArWZfDjfab8qVHf3WVtg',
+                '-3Z9SadSY-w_ckVGQ0dedQ',
+                '-3e3CP3FFc-rvJj_-_airw',
+                '-3m_nXlyvdKAVNNmVirpGQ',
+                '-40qQXB8JsneSiDqXMjoeg',
+                '-49SvmoGFrpZj5jmT1n4Sg',
+                '-4HMjEGQgduIMMTe0WPQBA',
+                '-4N4YEobjG89VQsEgqZshg',
+                '-4dYswJy7SPcbcERvitmIg',
+                '-4zwfrKm21Rf89pTJRhG9w',
+                '-54X2p-t4_toIoem4k_SvA',
+                '-5LzSdkohuiRPOLi0GGCJQ',
+                '-5Rah4ZvWsDu4oilUZxhtw',
+                '-5ink0kIoVfuS5Zi_6QBnQ',
+                '-5jh7Rgm_jP2SclLrZG80A',
+                '-5uzjjKUA-kt81j605d5Jg',
+                '-63ytt5vkWof-M9NDGTkng',
+                '-6AjXJIUlbGSUohUzg9-iA',
+                '-6MEKOmFu6jckT3pruSxHg',
+                '-6nQZ-QCkAyNHdtaxOxDpQ',
+                '-7KyK-QIAjFicDhpifwbPw',
+                '-8-8mbxQEpZx8Zs_nrzljA',
+                '-8iiwnBs4yu4s1yLkWzU9Q',
+                '-9CvbWc-vPYsoioAgZii4Q',
+                '-ATiAtTikuGuqvaW2O6tNA',
+                '-AanHawaDlzWHQjrqRRWig',
+                '-AbzJTLQdbdQrhRzQLgsKA',
+                '-Ah-gbZpa-IiQVIrhKRhhA',
+                '-BLVl824WRLFIm_uiHmkbA',
+                '-Be75AsLHhBrrDYZwfwSCA',
+                '-BhSR6dAry5-2x3ndjX_9w',
+                '-Bhoyo7LL97tgt9Hze0Saw',
+                '-BjXcRcvDqOQ23eUKx6hjg',
+                '-Bl2AA2Ujp1EBp0hEw6sIA',
+                '-CIZAVxbJ9RDWl9Xx9kzOg',
+                '-CRjqZ4GxZ6lIa_qMj7-yw',
+                '-Cf4TdTeHqdk3ZmK9_4p3w',
+                '-CoVlGcw8nOmkp_ASc_DIQ',
+                '-DGsnMlRrR_tv8avrpQLQw',
+                '-D_3emciINpjvYXsHCf8OA',
+                '-E5FEJIZdmwV7A1XGdhUeA',
+                '-F04D8Q5oACUCW_zEMkS1A',
+                '-FMI0_EhMjwXaAgHVGuG2Q',
+                '-FSNRWP_3twzsH-qliHcZQ',
+                '-FrAoc8_01YaTiwc1zByOA',
+                '-HFXvEB8mBf7jZRd2on-zA',
+                '-HewctWQ0P3HqKCr76bU-g',
+                '-HxLFWKVgXSU8JlR21PBkg',
+                '-IRJAg0tkspFukxKY87TBA',
+                '-IZpkWsJKfq35eJLzaUcvA',
+                '-Is2hkDjuguxmahjh8Spjw',
+                '-IxZMOReWDCJDD-A2N92_Q',
+                '-K80PQ45I5AeYWSCcEcy6g',
+                '-KWel73upKHxstRCr9JGLw',
+                '-KncfNxXHo2DA46fR39K5w',
+                '-KoF5X8toS6VBY3DvNeuDA',
+                '-L70iK2xSuBo1zsS9NP_Wg',
+                '-LmhsdQproqCf5EQoD06rQ',
+                '-LmyoKvQ3WPptdXTtVtwmw',
+                '-LoYGjfeHbGklgmiJU9EMQ',
+                '-LpG-lx52Mjp7jyJ8YZHZQ',
+                '-M4bstf1eZI1cltbABQO5g',
+                '-MkngKKkTIVfnUbq2S1ucQ',
+                '-N1WjsJUama2LpA668ctbA',
+                '-NBNpfXO_WlUJFprqDtcSg',
+                '-NFHQ0ePNYu6SrwekdhcBw',
+                '-NG3pA9LEXCxt0Fjd_aYYA',
+                '-NQgfwpVyvDlA7pmmeNwrg',
+                '-OIUunijjcq_ZzyyQhPPFQ',
+                '-OPowcQMNgdjzofWhD9uvw',
+                '-Om8XgP9GZ4UUFbgTRI4YQ',
+                '-Or44IdY51Ukd618kikmtA',
+                '-PMXnNJ1D67NkAupRHNkpQ',
+                '-PqeUUIN8Qgqhv5KMiRfHA',
+                '-Q9gvLmYlv68lT9Z2kH09g',
+                '-QG6KSRQKTQ80--wqrnLTg',
+                '-QI8Qi8XWH3D8y8ethnajA',
+                '-QwHN9KoluPcA0YFllwFYQ',
+                '-R3PWE4ycIc-xElcPqqetw',
+                '-R8qYNbQq8g1abR5IpGgWw',
+                '-RJfiKv_UsYol83dkfqpHQ',
+                '-RckAAIJ-_KH0AzqrekYuw',
+                '-RpUSbVtSGO9LZwMzGogww',
+                ... 14468 more items
+              ]
+            }
+          },
+          queryHash: '0AEF20BD',
+          planCacheKey: '834B008B',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            queryPlan: {
+              stage: 'GROUP',
+              planNodeId: 4,
+              inputStage: {
+                stage: 'FETCH',
+                planNodeId: 2,
+                inputStage: {
+                  stage: 'IXSCAN',
+                  planNodeId: 1,
+                  keyPattern: {
+                    business_id: 1
+                  },
+                  indexName: 'business_id_1',
+                  isMultiKey: false,
+                  multiKeyPaths: {
+                    business_id: []
+                  },
+                  isUnique: false,
+                  isSparse: false,
+                  isPartial: false,
+                  indexVersion: 2,
+                  direction: 'forward',
+                  indexBounds: {
+                    business_id: [
+                      '["--OS_I7dnABrXvRCCuWOGQ", "--OS_I7dnABrXvRCCuWOGQ"]',
+                      '["--sXnWH9Xm6_NvIjyuA99w", "--sXnWH9Xm6_NvIjyuA99w"]',
+                      '["-0M0b-XhtFagyLmsBtOe8w", "-0M0b-XhtFagyLmsBtOe8w"]',
+                      '["-0PN_KFPtbnLQZEeb23XiA", "-0PN_KFPtbnLQZEeb23XiA"]',
+                      '["-0TffRSXXIlBYVbb5AwfTg", "-0TffRSXXIlBYVbb5AwfTg"]',
+                      '["-0eUa8TsXFFy0FCxHYmrjg", "-0eUa8TsXFFy0FCxHYmrjg"]',
+                      '["-0fvhILrC9UsQ6gLNpZlTQ", "-0fvhILrC9UsQ6gLNpZlTQ"]',
+                      '["-0x-MbRbsi9YoPxB873qcw", "-0x-MbRbsi9YoPxB873qcw"]',
+                      '["-1B9pP_CrRBJYPICE5WbRA", "-1B9pP_CrRBJYPICE5WbRA"]',
+                      '["-1DxQ1CxSc_JCxzKm9bglg", "-1DxQ1CxSc_JCxzKm9bglg"]',
+                      '["-1b2kNOowsPrPpBOK4lNkQ", "-1b2kNOowsPrPpBOK4lNkQ"]',
+                      '["-1yftDfgOUlxe_IACM5PFg", "-1yftDfgOUlxe_IACM5PFg"]',
+                      '["-1yt2mk60wWuQz9hPVKZCA", "-1yt2mk60wWuQz9hPVKZCA"]',
+                      '["-2-ih3mE8KPyeKVIzpBfPQ", "-2-ih3mE8KPyeKVIzpBfPQ"]',
+                      '["-2vZHP5Ej9FroxJo8qYJXA", "-2vZHP5Ej9FroxJo8qYJXA"]',
+                      '["-2xzyHY8uWnLmyQkkfwMuQ", "-2xzyHY8uWnLmyQkkfwMuQ"]',
+                      '["-32hOCwsuKd04WO-HQyYFg", "-32hOCwsuKd04WO-HQyYFg"]',
+                      '["-3ArWZfDjfab8qVHf3WVtg", "-3ArWZfDjfab8qVHf3WVtg"]',
+                      '["-3Z9SadSY-w_ckVGQ0dedQ", "-3Z9SadSY-w_ckVGQ0dedQ"]',
+                      '["-3e3CP3FFc-rvJj_-_airw", "-3e3CP3FFc-rvJj_-_airw"]',
+                      '["-3m_nXlyvdKAVNNmVirpGQ", "-3m_nXlyvdKAVNNmVirpGQ"]',
+                      '["-40qQXB8JsneSiDqXMjoeg", "-40qQXB8JsneSiDqXMjoeg"]',
+                      '["-49SvmoGFrpZj5jmT1n4Sg", "-49SvmoGFrpZj5jmT1n4Sg"]',
+                      '["-4HMjEGQgduIMMTe0WPQBA", "-4HMjEGQgduIMMTe0WPQBA"]',
+                      '["-4N4YEobjG89VQsEgqZshg", "-4N4YEobjG89VQsEgqZshg"]',
+                      '["-4dYswJy7SPcbcERvitmIg", "-4dYswJy7SPcbcERvitmIg"]',
+                      '["-4zwfrKm21Rf89pTJRhG9w", "-4zwfrKm21Rf89pTJRhG9w"]',
+                      '["-54X2p-t4_toIoem4k_SvA", "-54X2p-t4_toIoem4k_SvA"]',
+                      '["-5LzSdkohuiRPOLi0GGCJQ", "-5LzSdkohuiRPOLi0GGCJQ"]',
+                      '["-5Rah4ZvWsDu4oilUZxhtw", "-5Rah4ZvWsDu4oilUZxhtw"]',
+                      '["-5ink0kIoVfuS5Zi_6QBnQ", "-5ink0kIoVfuS5Zi_6QBnQ"]',
+                      '["-5jh7Rgm_jP2SclLrZG80A", "-5jh7Rgm_jP2SclLrZG80A"]',
+                      '["-5uzjjKUA-kt81j605d5Jg", "-5uzjjKUA-kt81j605d5Jg"]',
+                      '["-63ytt5vkWof-M9NDGTkng", "-63ytt5vkWof-M9NDGTkng"]',
+                      '["-6AjXJIUlbGSUohUzg9-iA", "-6AjXJIUlbGSUohUzg9-iA"]',
+                      '["-6MEKOmFu6jckT3pruSxHg", "-6MEKOmFu6jckT3pruSxHg"]',
+                      '["-6nQZ-QCkAyNHdtaxOxDpQ", "-6nQZ-QCkAyNHdtaxOxDpQ"]',
+                      '["-7KyK-QIAjFicDhpifwbPw", "-7KyK-QIAjFicDhpifwbPw"]',
+                      '["-8-8mbxQEpZx8Zs_nrzljA", "-8-8mbxQEpZx8Zs_nrzljA"]',
+                      '["-8iiwnBs4yu4s1yLkWzU9Q", "-8iiwnBs4yu4s1yLkWzU9Q"]',
+                      '["-9CvbWc-vPYsoioAgZii4Q", "-9CvbWc-vPYsoioAgZii4Q"]',
+                      '["-ATiAtTikuGuqvaW2O6tNA", "-ATiAtTikuGuqvaW2O6tNA"]',
+                      '["-AanHawaDlzWHQjrqRRWig", "-AanHawaDlzWHQjrqRRWig"]',
+                      '["-AbzJTLQdbdQrhRzQLgsKA", "-AbzJTLQdbdQrhRzQLgsKA"]',
+                      '["-Ah-gbZpa-IiQVIrhKRhhA", "-Ah-gbZpa-IiQVIrhKRhhA"]',
+                      '["-BLVl824WRLFIm_uiHmkbA", "-BLVl824WRLFIm_uiHmkbA"]',
+                      '["-Be75AsLHhBrrDYZwfwSCA", "-Be75AsLHhBrrDYZwfwSCA"]',
+                      '["-BhSR6dAry5-2x3ndjX_9w", "-BhSR6dAry5-2x3ndjX_9w"]',
+                      '["-Bhoyo7LL97tgt9Hze0Saw", "-Bhoyo7LL97tgt9Hze0Saw"]',
+                      '["-BjXcRcvDqOQ23eUKx6hjg", "-BjXcRcvDqOQ23eUKx6hjg"]',
+                      '["-Bl2AA2Ujp1EBp0hEw6sIA", "-Bl2AA2Ujp1EBp0hEw6sIA"]',
+                      '["-CIZAVxbJ9RDWl9Xx9kzOg", "-CIZAVxbJ9RDWl9Xx9kzOg"]',
+                      '["-CRjqZ4GxZ6lIa_qMj7-yw", "-CRjqZ4GxZ6lIa_qMj7-yw"]',
+                      '["-Cf4TdTeHqdk3ZmK9_4p3w", "-Cf4TdTeHqdk3ZmK9_4p3w"]',
+                      '["-CoVlGcw8nOmkp_ASc_DIQ", "-CoVlGcw8nOmkp_ASc_DIQ"]',
+                      '["-DGsnMlRrR_tv8avrpQLQw", "-DGsnMlRrR_tv8avrpQLQw"]',
+                      '["-D_3emciINpjvYXsHCf8OA", "-D_3emciINpjvYXsHCf8OA"]',
+                      '["-E5FEJIZdmwV7A1XGdhUeA", "-E5FEJIZdmwV7A1XGdhUeA"]',
+                      '["-F04D8Q5oACUCW_zEMkS1A", "-F04D8Q5oACUCW_zEMkS1A"]',
+                      '["-FMI0_EhMjwXaAgHVGuG2Q", "-FMI0_EhMjwXaAgHVGuG2Q"]',
+                      '["-FSNRWP_3twzsH-qliHcZQ", "-FSNRWP_3twzsH-qliHcZQ"]',
+                      '["-FrAoc8_01YaTiwc1zByOA", "-FrAoc8_01YaTiwc1zByOA"]',
+                      '["-HFXvEB8mBf7jZRd2on-zA", "-HFXvEB8mBf7jZRd2on-zA"]',
+                      '["-HewctWQ0P3HqKCr76bU-g", "-HewctWQ0P3HqKCr76bU-g"]',
+                      '["-HxLFWKVgXSU8JlR21PBkg", "-HxLFWKVgXSU8JlR21PBkg"]',
+                      '["-IRJAg0tkspFukxKY87TBA", "-IRJAg0tkspFukxKY87TBA"]',
+                      '["-IZpkWsJKfq35eJLzaUcvA", "-IZpkWsJKfq35eJLzaUcvA"]',
+                      '["-Is2hkDjuguxmahjh8Spjw", "-Is2hkDjuguxmahjh8Spjw"]',
+                      '["-IxZMOReWDCJDD-A2N92_Q", "-IxZMOReWDCJDD-A2N92_Q"]',
+                      '["-K80PQ45I5AeYWSCcEcy6g", "-K80PQ45I5AeYWSCcEcy6g"]',
+                      '["-KWel73upKHxstRCr9JGLw", "-KWel73upKHxstRCr9JGLw"]',
+                      '["-KncfNxXHo2DA46fR39K5w", "-KncfNxXHo2DA46fR39K5w"]',
+                      '["-KoF5X8toS6VBY3DvNeuDA", "-KoF5X8toS6VBY3DvNeuDA"]',
+                      '["-L70iK2xSuBo1zsS9NP_Wg", "-L70iK2xSuBo1zsS9NP_Wg"]',
+                      '["-LmhsdQproqCf5EQoD06rQ", "-LmhsdQproqCf5EQoD06rQ"]',
+                      '["-LmyoKvQ3WPptdXTtVtwmw", "-LmyoKvQ3WPptdXTtVtwmw"]',
+                      '["-LoYGjfeHbGklgmiJU9EMQ", "-LoYGjfeHbGklgmiJU9EMQ"]',
+                      '["-LpG-lx52Mjp7jyJ8YZHZQ", "-LpG-lx52Mjp7jyJ8YZHZQ"]',
+                      '["-M4bstf1eZI1cltbABQO5g", "-M4bstf1eZI1cltbABQO5g"]',
+                      '["-MkngKKkTIVfnUbq2S1ucQ", "-MkngKKkTIVfnUbq2S1ucQ"]',
+                      '["-N1WjsJUama2LpA668ctbA", "-N1WjsJUama2LpA668ctbA"]',
+                      '["-NBNpfXO_WlUJFprqDtcSg", "-NBNpfXO_WlUJFprqDtcSg"]',
+                      '["-NFHQ0ePNYu6SrwekdhcBw", "-NFHQ0ePNYu6SrwekdhcBw"]',
+                      '["-NG3pA9LEXCxt0Fjd_aYYA", "-NG3pA9LEXCxt0Fjd_aYYA"]',
+                      '["-NQgfwpVyvDlA7pmmeNwrg", "-NQgfwpVyvDlA7pmmeNwrg"]',
+                      '["-OIUunijjcq_ZzyyQhPPFQ", "-OIUunijjcq_ZzyyQhPPFQ"]',
+                      '["-OPowcQMNgdjzofWhD9uvw", "-OPowcQMNgdjzofWhD9uvw"]',
+                      '["-Om8XgP9GZ4UUFbgTRI4YQ", "-Om8XgP9GZ4UUFbgTRI4YQ"]',
+                      '["-Or44IdY51Ukd618kikmtA", "-Or44IdY51Ukd618kikmtA"]',
+                      '["-PMXnNJ1D67NkAupRHNkpQ", "-PMXnNJ1D67NkAupRHNkpQ"]',
+                      '["-PqeUUIN8Qgqhv5KMiRfHA", "-PqeUUIN8Qgqhv5KMiRfHA"]',
+                      '["-Q9gvLmYlv68lT9Z2kH09g", "-Q9gvLmYlv68lT9Z2kH09g"]',
+                      '["-QG6KSRQKTQ80--wqrnLTg", "-QG6KSRQKTQ80--wqrnLTg"]',
+                      '["-QI8Qi8XWH3D8y8ethnajA", "-QI8Qi8XWH3D8y8ethnajA"]',
+                      '["-QwHN9KoluPcA0YFllwFYQ", "-QwHN9KoluPcA0YFllwFYQ"]',
+                      '["-R3PWE4ycIc-xElcPqqetw", "-R3PWE4ycIc-xElcPqqetw"]',
+                      '["-R8qYNbQq8g1abR5IpGgWw", "-R8qYNbQq8g1abR5IpGgWw"]',
+                      '["-RJfiKv_UsYol83dkfqpHQ", "-RJfiKv_UsYol83dkfqpHQ"]',
+                      '["-RckAAIJ-_KH0AzqrekYuw", "-RckAAIJ-_KH0AzqrekYuw"]',
+                      '["-RpUSbVtSGO9LZwMzGogww", "-RpUSbVtSGO9LZwMzGogww"]',
+                      ... 14468 more items
+                    ]
+                  }
+                }
+              }
+            },
+            slotBasedPlan: {
+              slots: `$$RESULT=s31 env: { s1 = TimeZoneDatabase(NZ...America/Argentina/Jujuy) (timeZoneDB), s3 = 1724622496780 (NOW), s9 = {"business_id" : 1}, s24 = true, s2 = Nothing (SEARCH_META), s5 = IndexBounds("field #0['business_id']: [CollationKey(0x2d2d4f535f4937646e414272587652434375574f4751), CollationKey(0x2d2d4f535f4937646e414272587652434375574f4751)], [Collatio"...), s13 = Nothing }`,
+              stages: '[4] mkobj s31 [_id = s28, review_count = s29] true false \n' +
+                '[4] group [s28] [s29 = sum(1)] spillSlots[s30] mergingExprs[sum(s30)] \n' +
+                '[4] project [s28 = (s27 ?: null)] \n' +
+                '[2] nlj inner [] [s19, s20, s21, s22, s23] \n' +
+                '    left \n' +
+                '        [1] branch {s24} [s19, s20, s21, s22, s23] \n' +
+                '        [s4, s6, s7, s8, s9] [1] ixscan_generic s5 s8 s4 s6 s7 lowPriority [] @"16d6a9ec-7544-4ffb-8e65-9462970f34cb" @"business_id_1" true \n' +
+                '        [s10, s16, s17, s18, s9] [1] nlj inner [] [s11, s12] \n' +
+                '            left \n' +
+                '                [1] project [s11 = getField(s14, "l"), s12 = getField(s14, "h")] \n' +
+                '                [1] unwind s14 s15 s13 false \n' +
+                '                [1] limit 1ll \n' +
+                '                [1] coscan \n' +
+                '            right \n' +
+                '                [1] ixseek s11 s12 s18 s10 s16 s17 [] @"16d6a9ec-7544-4ffb-8e65-9462970f34cb" @"business_id_1" true \n' +
+                '    right \n' +
+                '        [2] limit 1ll \n' +
+                '        [2] seek s19 s25 s26 s20 s21 s22 s23 [s27 = user_id] @"16d6a9ec-7544-4ffb-8e65-9462970f34cb" true false \n'
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 279847,
+          executionTimeMillis: 165755,
+          totalKeysExamined: 980690,
+          totalDocsExamined: 967508,
+          executionStages: {
+            stage: 'mkobj',
+            planNodeId: 4,
+            nReturned: 279847,
+            executionTimeMillisEstimate: 164011,
+            opens: 1,
+            closes: 1,
+            saveState: 9220,
+            restoreState: 9220,
+            isEOF: 1,
+            objSlot: 31,
+            fields: [],
+            projectFields: [
+              '_id',
+              'review_count'
+            ],
+            projectSlots: [
+              28,
+              29
+            ],
+            forceNewObject: true,
+            returnOldObject: false,
+            inputStage: {
+              stage: 'group',
+              planNodeId: 4,
+              nReturned: 279847,
+              executionTimeMillisEstimate: 163874,
+              opens: 1,
+              closes: 1,
+              saveState: 9220,
+              restoreState: 9220,
+              isEOF: 1,
+              groupBySlots: [
+                28
+              ],
+              expressions: {
+                '29': 'sum(1) ',
+                initExprs: {
+                  '29': null
+                }
+              },
+              mergingExprs: {
+                '30': 'sum(s30) '
+              },
+              usedDisk: false,
+              spills: 0,
+              spilledRecords: 0,
+              spilledDataStorageSize: 0,
+              inputStage: {
+                stage: 'project',
+                planNodeId: 4,
+                nReturned: 967508,
+                executionTimeMillisEstimate: 159577,
+                opens: 1,
+                closes: 1,
+                saveState: 9220,
+                restoreState: 9220,
+                isEOF: 1,
+                projections: {
+                  '28': '(s27 ?: null) '
+                },
+                inputStage: {
+                  stage: 'nlj',
+                  planNodeId: 2,
+                  nReturned: 967508,
+                  executionTimeMillisEstimate: 159163,
+                  opens: 1,
+                  closes: 1,
+                  saveState: 9220,
+                  restoreState: 9220,
+                  isEOF: 1,
+                  totalDocsExamined: 967508,
+                  totalKeysExamined: 980690,
+                  collectionScans: 0,
+                  collectionSeeks: 967508,
+                  indexScans: 0,
+                  indexSeeks: 1,
+                  indexesUsed: [
+                    'business_id_1',
+                    'business_id_1'
+                  ],
+                  innerOpens: 967508,
+                  innerCloses: 1,
+                  outerProjects: [],
+                  outerCorrelated: [
+                    19,
+                    20,
+                    21,
+                    22,
+                    23
+                  ],
+                  outerStage: {
+                    stage: 'branch',
+                    planNodeId: 1,
+                    nReturned: 967508,
+                    executionTimeMillisEstimate: 9167,
+                    opens: 1,
+                    closes: 1,
+                    saveState: 9220,
+                    restoreState: 9220,
+                    isEOF: 1,
+                    numTested: 1,
+                    thenBranchOpens: 1,
+                    thenBranchCloses: 1,
+                    elseBranchOpens: 0,
+                    elseBranchCloses: 0,
+                    filter: 's24 ',
+                    thenSlots: [
+                      4,
+                      6,
+                      7,
+                      8,
+                      9
+                    ],
+                    elseSlots: [
+                      10,
+                      16,
+                      17,
+                      18,
+                      9
+                    ],
+                    outputSlots: [
+                      19,
+                      20,
+                      21,
+                      22,
+                      23
+                    ],
+                    thenStage: {
+                      stage: 'ixscan_generic',
+                      planNodeId: 1,
+                      nReturned: 967508,
+                      executionTimeMillisEstimate: 9066,
+                      opens: 1,
+                      closes: 1,
+                      saveState: 9220,
+                      restoreState: 9220,
+                      isEOF: 1,
+                      indexName: 'business_id_1',
+                      keysExamined: 980690,
+                      seeks: 13183,
+                      numReads: 980691,
+                      indexKeySlot: 8,
+                      recordIdSlot: 4,
+                      snapshotIdSlot: 6,
+                      indexIdentSlot: 7,
+                      outputSlots: [],
+                      indexKeysToInclude: '00000000000000000000000000000000'
+                    },
+                    elseStage: {
+                      stage: 'nlj',
+                      planNodeId: 1,
+                      nReturned: 0,
+                      executionTimeMillisEstimate: 0,
+                      opens: 0,
+                      closes: 0,
+                      saveState: 9220,
+                      restoreState: 9220,
+                      isEOF: 0,
+                      totalDocsExamined: 0,
+                      totalKeysExamined: 0,
+                      collectionScans: 0,
+                      collectionSeeks: 0,
+                      indexScans: 0,
+                      indexSeeks: 0,
+                      indexesUsed: [
+                        'business_id_1'
+                      ],
+                      innerOpens: 0,
+                      innerCloses: 0,
+                      outerProjects: [],
+                      outerCorrelated: [
+                        11,
+                        12
+                      ],
+                      outerStage: {
+                        stage: 'project',
+                        planNodeId: 1,
+                        nReturned: 0,
+                        executionTimeMillisEstimate: 0,
+                        opens: 0,
+                        closes: 0,
+                        saveState: 9220,
+                        restoreState: 9220,
+                        isEOF: 0,
+                        projections: {
+                          '11': 'getField(s14, "l") ',
+                          '12': 'getField(s14, "h") '
+                        },
+                        inputStage: {
+                          stage: 'unwind',
+                          planNodeId: 1,
+                          nReturned: 0,
+                          executionTimeMillisEstimate: 0,
+                          opens: 0,
+                          closes: 0,
+                          saveState: 9220,
+                          restoreState: 9220,
+                          isEOF: 0,
+                          inputSlot: 13,
+                          outSlot: 14,
+                          outIndexSlot: 15,
+                          preserveNullAndEmptyArrays: 0,
+                          inputStage: {
+                            stage: 'limit',
+                            planNodeId: 1,
+                            nReturned: 0,
+                            executionTimeMillisEstimate: 0,
+                            opens: 0,
+                            closes: 0,
+                            saveState: 9220,
+                            restoreState: 9220,
+                            isEOF: 0,
+                            inputStage: {
+                              stage: 'coscan',
+                              planNodeId: 1,
+                              nReturned: 0,
+                              executionTimeMillisEstimate: 0,
+                              opens: 0,
+                              closes: 0,
+                              saveState: 9220,
+                              restoreState: 9220,
+                              isEOF: 0
+                            }
+                          }
+                        }
+                      },
+                      innerStage: {
+                        stage: 'ixseek',
+                        planNodeId: 1,
+                        nReturned: 0,
+                        executionTimeMillisEstimate: 0,
+                        opens: 0,
+                        closes: 0,
+                        saveState: 9220,
+                        restoreState: 9220,
+                        isEOF: 0,
+                        indexName: 'business_id_1',
+                        keysExamined: 0,
+                        seeks: 0,
+                        numReads: 0,
+                        indexKeySlot: 18,
+                        recordIdSlot: 10,
+                        snapshotIdSlot: 16,
+                        indexIdentSlot: 17,
+                        outputSlots: [],
+                        indexKeysToInclude: '00000000000000000000000000000000',
+                        seekKeyLow: 's11 ',
+                        seekKeyHigh: 's12 '
+                      }
+                    }
+                  },
+                  innerStage: {
+                    stage: 'limit',
+                    planNodeId: 2,
+                    nReturned: 967508,
+                    executionTimeMillisEstimate: 149597,
+                    opens: 967508,
+                    closes: 1,
+                    saveState: 9220,
+                    restoreState: 9220,
+                    isEOF: 1,
+                    limit: 1,
+                    inputStage: {
+                      stage: 'seek',
+                      planNodeId: 2,
+                      nReturned: 967508,
+                      executionTimeMillisEstimate: 149286,
+                      opens: 967508,
+                      closes: 1,
+                      saveState: 9220,
+                      restoreState: 9220,
+                      isEOF: 0,
+                      numReads: 967508,
+                      recordSlot: 25,
+                      recordIdSlot: 26,
+                      seekKeySlot: 19,
+                      snapshotIdSlot: 20,
+                      indexIdentSlot: 21,
+                      indexKeySlot: 22,
+                      indexKeyPatternSlot: 23,
+                      fields: [
+                        'user_id'
+                      ],
+                      outputSlots: [
+                        27
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      nReturned: 279847,
+      executionTimeMillisEstimate: 164273
+    },
+    {
+      '$project': {
+        review_count: true,
+        user_id: '$_id',
+        _id: false
+      },
+      nReturned: 279847,
+      executionTimeMillisEstimate: 164360
+    },
+    {
+      '$out': {
+        coll: 'user_review_counts',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 164404
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'review',
+    pipeline: [
+      {
+        '$match': {
+          business_id: {
+            '$in': [
+              '--OS_I7dnABrXvRCCuWOGQ',
+              '--sXnWH9Xm6_NvIjyuA99w',
+              '-0M0b-XhtFagyLmsBtOe8w',
+              '-0PN_KFPtbnLQZEeb23XiA',
+              '-0TffRSXXIlBYVbb5AwfTg',
+              '-0eUa8TsXFFy0FCxHYmrjg',
+              '-0fvhILrC9UsQ6gLNpZlTQ',
+              '-0x-MbRbsi9YoPxB873qcw',
+              '-1B9pP_CrRBJYPICE5WbRA',
+              '-1DxQ1CxSc_JCxzKm9bglg',
+              '-1b2kNOowsPrPpBOK4lNkQ',
+              '-1yftDfgOUlxe_IACM5PFg',
+              '-1yt2mk60wWuQz9hPVKZCA',
+              '-2-ih3mE8KPyeKVIzpBfPQ',
+              '-2vZHP5Ej9FroxJo8qYJXA',
+              '-2xzyHY8uWnLmyQkkfwMuQ',
+              '-32hOCwsuKd04WO-HQyYFg',
+              '-3ArWZfDjfab8qVHf3WVtg',
+              '-3Z9SadSY-w_ckVGQ0dedQ',
+              '-3e3CP3FFc-rvJj_-_airw',
+              '-3m_nXlyvdKAVNNmVirpGQ',
+              '-40qQXB8JsneSiDqXMjoeg',
+              '-49SvmoGFrpZj5jmT1n4Sg',
+              '-4HMjEGQgduIMMTe0WPQBA',
+              '-4N4YEobjG89VQsEgqZshg',
+              '-4dYswJy7SPcbcERvitmIg',
+              '-4zwfrKm21Rf89pTJRhG9w',
+              '-54X2p-t4_toIoem4k_SvA',
+              '-5LzSdkohuiRPOLi0GGCJQ',
+              '-5Rah4ZvWsDu4oilUZxhtw',
+              '-5ink0kIoVfuS5Zi_6QBnQ',
+              '-5jh7Rgm_jP2SclLrZG80A',
+              '-5uzjjKUA-kt81j605d5Jg',
+              '-63ytt5vkWof-M9NDGTkng',
+              '-6AjXJIUlbGSUohUzg9-iA',
+              '-6MEKOmFu6jckT3pruSxHg',
+              '-6nQZ-QCkAyNHdtaxOxDpQ',
+              '-7KyK-QIAjFicDhpifwbPw',
+              '-8-8mbxQEpZx8Zs_nrzljA',
+              '-8iiwnBs4yu4s1yLkWzU9Q',
+              '-9CvbWc-vPYsoioAgZii4Q',
+              '-ATiAtTikuGuqvaW2O6tNA',
+              '-AanHawaDlzWHQjrqRRWig',
+              '-AbzJTLQdbdQrhRzQLgsKA',
+              '-Ah-gbZpa-IiQVIrhKRhhA',
+              '-BLVl824WRLFIm_uiHmkbA',
+              '-Be75AsLHhBrrDYZwfwSCA',
+              '-BhSR6dAry5-2x3ndjX_9w',
+              '-Bhoyo7LL97tgt9Hze0Saw',
+              '-BjXcRcvDqOQ23eUKx6hjg',
+              '-Bl2AA2Ujp1EBp0hEw6sIA',
+              '-CIZAVxbJ9RDWl9Xx9kzOg',
+              '-CRjqZ4GxZ6lIa_qMj7-yw',
+              '-Cf4TdTeHqdk3ZmK9_4p3w',
+              '-CoVlGcw8nOmkp_ASc_DIQ',
+              '-DGsnMlRrR_tv8avrpQLQw',
+              '-D_3emciINpjvYXsHCf8OA',
+              '-E5FEJIZdmwV7A1XGdhUeA',
+              '-F04D8Q5oACUCW_zEMkS1A',
+              '-FMI0_EhMjwXaAgHVGuG2Q',
+              '-FSNRWP_3twzsH-qliHcZQ',
+              '-FrAoc8_01YaTiwc1zByOA',
+              '-HFXvEB8mBf7jZRd2on-zA',
+              '-HewctWQ0P3HqKCr76bU-g',
+              '-HxLFWKVgXSU8JlR21PBkg',
+              '-IRJAg0tkspFukxKY87TBA',
+              '-IZpkWsJKfq35eJLzaUcvA',
+              '-Is2hkDjuguxmahjh8Spjw',
+              '-IxZMOReWDCJDD-A2N92_Q',
+              '-K80PQ45I5AeYWSCcEcy6g',
+              '-KWel73upKHxstRCr9JGLw',
+              '-KncfNxXHo2DA46fR39K5w',
+              '-KoF5X8toS6VBY3DvNeuDA',
+              '-L70iK2xSuBo1zsS9NP_Wg',
+              '-LmhsdQproqCf5EQoD06rQ',
+              '-LmyoKvQ3WPptdXTtVtwmw',
+              '-LoYGjfeHbGklgmiJU9EMQ',
+              '-LpG-lx52Mjp7jyJ8YZHZQ',
+              '-M4bstf1eZI1cltbABQO5g',
+              '-MkngKKkTIVfnUbq2S1ucQ',
+              '-N1WjsJUama2LpA668ctbA',
+              '-NBNpfXO_WlUJFprqDtcSg',
+              '-NFHQ0ePNYu6SrwekdhcBw',
+              '-NG3pA9LEXCxt0Fjd_aYYA',
+              '-NQgfwpVyvDlA7pmmeNwrg',
+              '-OIUunijjcq_ZzyyQhPPFQ',
+              '-OPowcQMNgdjzofWhD9uvw',
+              '-Om8XgP9GZ4UUFbgTRI4YQ',
+              '-Or44IdY51Ukd618kikmtA',
+              '-PMXnNJ1D67NkAupRHNkpQ',
+              '-PqeUUIN8Qgqhv5KMiRfHA',
+              '-Q9gvLmYlv68lT9Z2kH09g',
+              '-QG6KSRQKTQ80--wqrnLTg',
+              '-QI8Qi8XWH3D8y8ethnajA',
+              '-QwHN9KoluPcA0YFllwFYQ',
+              '-R3PWE4ycIc-xElcPqqetw',
+              '-R8qYNbQq8g1abR5IpGgWw',
+              '-RJfiKv_UsYol83dkfqpHQ',
+              '-RckAAIJ-_KH0AzqrekYuw',
+              '-RpUSbVtSGO9LZwMzGogww',
+              ... 14468 more items
+            ]
+          }
+        }
+      },
+      {
+        '$group': {
+          _id: '$user_id',
+          review_count: {
+            '$sum': 1
+          }
+        }
+      },
+      {
+        '$project': {
+          _id: 0,
+          user_id: '$_id',
+          review_count: 1
+        }
+      },
+      {
+        '$out': 'user_review_counts'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}

@@ -1,0 +1,275 @@
+{
+  explainVersion: '1',
+  stages: [
+    {
+      '$cursor': {
+        queryPlanner: {
+          namespace: 'yelp.business',
+          indexFilterSet: false,
+          parsedQuery: {},
+          queryHash: '6ED32C8F',
+          planCacheKey: '6ED32C8F',
+          maxIndexedOrSolutionsReached: false,
+          maxIndexedAndSolutionsReached: false,
+          maxScansToExplodeReached: false,
+          winningPlan: {
+            stage: 'PROJECTION_SIMPLE',
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              direction: 'forward'
+            }
+          },
+          rejectedPlans: []
+        },
+        executionStats: {
+          executionSuccess: true,
+          nReturned: 150346,
+          executionTimeMillis: 10644,
+          totalKeysExamined: 0,
+          totalDocsExamined: 150346,
+          executionStages: {
+            stage: 'PROJECTION_SIMPLE',
+            nReturned: 150346,
+            executionTimeMillisEstimate: 16,
+            works: 150347,
+            advanced: 150346,
+            needTime: 0,
+            needYield: 0,
+            saveState: 164,
+            restoreState: 164,
+            isEOF: 1,
+            transformBy: {
+              business_id: 1,
+              categories: 1,
+              city: 1,
+              _id: 0
+            },
+            inputStage: {
+              stage: 'COLLSCAN',
+              nReturned: 150346,
+              executionTimeMillisEstimate: 7,
+              works: 150347,
+              advanced: 150346,
+              needTime: 0,
+              needYield: 0,
+              saveState: 164,
+              restoreState: 164,
+              isEOF: 1,
+              direction: 'forward',
+              docsExamined: 150346
+            }
+          }
+        }
+      },
+      nReturned: 150346,
+      executionTimeMillisEstimate: 170
+    },
+    {
+      '$lookup': {
+        from: 'target_business',
+        as: 'matched',
+        let: {
+          city: '$city',
+          categories: '$categories'
+        },
+        pipeline: [
+          {
+            '$match': {
+              '$expr': {
+                '$and': [
+                  {
+                    '$eq': [
+                      '$city',
+                      '$$city'
+                    ]
+                  },
+                  {
+                    '$regexMatch': {
+                      input: '$$categories',
+                      regex: {
+                        '$trim': {
+                          input: '$category'
+                        }
+                      },
+                      options: 'i'
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        unwinding: {
+          preserveNullAndEmptyArrays: false
+        }
+      },
+      totalDocsExamined: 2104858,
+      totalKeysExamined: 0,
+      collectionScans: 150347,
+      indexesUsed: [],
+      nReturned: 14538,
+      executionTimeMillisEstimate: 10615
+    },
+    {
+      '$group': {
+        _id: {
+          business_id: '$business_id',
+          categories: '$categories'
+        },
+        match_count: {
+          '$sum': {
+            '$const': 1
+          }
+        }
+      },
+      maxAccumulatorMemoryUsageBytes: {
+        match_count: 722592
+      },
+      totalOutputDataSizeBytes: 4506521,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      numBytesSpilledEstimate: 0,
+      spilledRecords: 0,
+      nReturned: 7527,
+      executionTimeMillisEstimate: 10637
+    },
+    {
+      '$project': {
+        match_count: true,
+        business_id: '$_id.business_id',
+        categories: '$_id.categories',
+        _id: false
+      },
+      nReturned: 7527,
+      executionTimeMillisEstimate: 10637
+    },
+    {
+      '$sort': {
+        sortKey: {
+          match_count: -1,
+          categories: 1,
+          business_id: 1
+        },
+        limit: 10
+      },
+      totalDataSizeSortedBytesEstimate: 7590,
+      usedDisk: false,
+      spills: 0,
+      spilledDataStorageSize: 0,
+      nReturned: 10,
+      executionTimeMillisEstimate: 10639
+    },
+    {
+      '$out': {
+        coll: 'matched_business',
+        db: 'yelp'
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 10639
+    }
+  ],
+  serverInfo: {
+    host: '04f49d1aaf72',
+    port: 27017,
+    version: '7.0.7',
+    gitVersion: 'cfb08e1ab7ef741b4abdd0638351b322514c45bd'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  command: {
+    aggregate: 'business',
+    pipeline: [
+      {
+        '$lookup': {
+          from: 'target_business',
+          let: {
+            city: '$city',
+            categories: '$categories'
+          },
+          pipeline: [
+            {
+              '$match': {
+                '$expr': {
+                  '$and': [
+                    {
+                      '$eq': [
+                        '$city',
+                        '$$city'
+                      ]
+                    },
+                    {
+                      '$regexMatch': {
+                        input: '$$categories',
+                        regex: {
+                          '$trim': {
+                            input: '$category'
+                          }
+                        },
+                        options: 'i'
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          as: 'matched'
+        }
+      },
+      {
+        '$unwind': '$matched'
+      },
+      {
+        '$group': {
+          _id: {
+            business_id: '$business_id',
+            categories: '$categories'
+          },
+          match_count: {
+            '$sum': 1
+          }
+        }
+      },
+      {
+        '$project': {
+          _id: 0,
+          business_id: '$_id.business_id',
+          categories: '$_id.categories',
+          match_count: 1
+        }
+      },
+      {
+        '$sort': {
+          match_count: -1,
+          categories: 1,
+          business_id: 1
+        }
+      },
+      {
+        '$limit': 10
+      },
+      {
+        '$out': 'matched_business'
+      }
+    ],
+    cursor: {},
+    '$db': 'yelp'
+  },
+  ok: 1
+}
