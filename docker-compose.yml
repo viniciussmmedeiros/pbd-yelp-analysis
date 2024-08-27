@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:7.0.7
+    container_name: mongo-pbd
+    ports:
+      - "27020:27017"
+    volumes:
+      - ./yelp_dataset:/data/files
+
+  postgres:
+    image: postgres:16.3
+    container_name: postgres-pbd
+    ports:
+      - "5440:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./yelp_dataset:/data/files
